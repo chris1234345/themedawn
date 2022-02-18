@@ -23,7 +23,7 @@
         }
       },
       "block_order": [
-        
+        "heading",
         "button"
       ],
       "settings": {
