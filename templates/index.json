@@ -6,8 +6,15 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Image banner",
-            "heading_size": "large"
+            "heading": "Musicians and Music Lovers support group",
+            "heading_size": "medium"
+          }
+        },
+        "bd97c566-f391-4318-b002-32ba64bed6d5": {
+          "type": "text",
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
           }
         },
         "button": {
@@ -24,6 +31,7 @@
       },
       "block_order": [
         "heading",
+        "bd97c566-f391-4318-b002-32ba64bed6d5",
         "button"
       ],
       "settings": {
