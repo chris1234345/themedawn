@@ -87,7 +87,7 @@
           "settings": {
             "button_label": "Click Here",
             "button_link": "",
-            "button_style_secondary": false
+            "button_style_secondary": true
           }
         }
       },
