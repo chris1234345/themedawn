@@ -11,7 +11,7 @@
             "type": "announcement",
             "settings": {
               "text": "We support your Musical Lifestyle",
-              "color_scheme": "accent-2",
+              "color_scheme": "inverse",
               "link": ""
             }
           }
