@@ -2,6 +2,7 @@
   "current": {
     "colors_solid_button_labels": "#334fb4",
     "colors_accent_1": "#334fb4",
+    "gradient_accent_1": "linear-gradient(201deg, rgba(102, 171, 238, 1), rgba(82, 218, 236, 1) 100%)",
     "colors_text": "#121212",
     "colors_outline_button_labels": "#334fb4",
     "colors_background_1": "#FFFFFF",
