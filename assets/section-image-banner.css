@@ -51,15 +51,15 @@
   }
 
   .banner--small:not(.banner--mobile-bottom):not(.banner--adapt) .banner__content {
-    min-height: 25rem;
+    min-height: 20rem;
   }
 
   .banner--medium:not(.banner--mobile-bottom):not(.banner--adapt) .banner__content {
-    min-height: 30rem;
+    min-height: 20rem;
   }
 
   .banner--large:not(.banner--mobile-bottom):not(.banner--adapt) .banner__content {
-    min-height: 30rem;
+    min-height: 20rem;
   }
 }
 
@@ -69,15 +69,15 @@
   }
 
   .banner--small:not(.banner--adapt) {
-    min-height: 42rem;
+    min-height: 30rem;
   }
 
   .banner--medium:not(.banner--adapt) {
-    min-height: 56rem;
+    min-height: 50rem;
   }
 
   .banner--large:not(.banner--adapt) {
-    min-height: 72rem;
+    min-height: 60rem;
   }
 
   .banner__content.banner__content--top-left {
