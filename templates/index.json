@@ -85,7 +85,7 @@
         "9ed865c3-15d6-4a77-99a2-ff9e2fafe87f": {
           "type": "button",
           "settings": {
-            "button_label": "Button label",
+            "button_label": "Click Here",
             "button_link": "",
             "button_style_secondary": false
           }
