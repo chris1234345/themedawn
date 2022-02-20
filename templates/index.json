@@ -72,8 +72,8 @@
         "4a79e40a-f268-442a-a94a-4179b62d7b11": {
           "type": "heading",
           "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
+            "heading": "Hard to find gifts for that special \"music someone\" in your life",
+            "heading_size": "h2"
           }
         },
         "e4ee7664-29b6-469a-9011-264557a4fdff": {
@@ -97,9 +97,9 @@
         "9ed865c3-15d6-4a77-99a2-ff9e2fafe87f"
       ],
       "settings": {
-        "color_scheme": "accent-2",
+        "color_scheme": "inverse",
         "full_width": true,
-        "padding_top": 40,
+        "padding_top": 36,
         "padding_bottom": 0
       }
     },
