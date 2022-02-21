@@ -15,7 +15,7 @@
     "body_scale": 110,
     "spacing_sections": 8,
     "spacing_grid_horizontal": 12,
-    "buttons_border_thickness": 4,
+    "buttons_border_thickness": 5,
     "buttons_radius": 0,
     "buttons_shadow_opacity": 25,
     "buttons_shadow_blur": 10,
