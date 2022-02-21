@@ -169,8 +169,8 @@
         "column2": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "title": "Complete Transparency",
+            "text": "<p>Each product on this store is printed on demand, meaning it's sent to be manufactured as soon as your order is placed. It may take a little longer, but it helps us keep prices as low as possible for music lovers like you.<\/p>",
             "link_label": "",
             "link": ""
           }
