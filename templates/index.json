@@ -160,8 +160,8 @@
         "column1": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "title": "Amazing Art",
+            "text": "<p>We hire artists from all over the world and pay them a fair rate to use their desighn powers to help us indulge in our love of music.<\/p>",
             "link_label": "",
             "link": ""
           }
