@@ -2220,12 +2220,12 @@ input[type='checkbox'] {
 }
 
 .header__heading-link:hover .h2 {
-  color: rgb(var(--color-foreground));
+  color: rgb(0, 0, 0);
 }
 
 .header__heading-link .h2 {
   line-height: 1;
-  color: rgb(0, 0, 0);
+  color: rgba(var(--color-foreground), 0.75);
 }
 
 .header__heading-logo {
