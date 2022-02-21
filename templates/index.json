@@ -88,7 +88,7 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Mugs",
+        "title": "Featured products",
         "collection": "all",
         "products_to_show": 8,
         "columns_desktop": 4,
