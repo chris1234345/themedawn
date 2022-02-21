@@ -178,8 +178,8 @@
         "column3": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "title": "For A Good Cause",
+            "text": "<p>10% of our profits will be donated automatically at the end of each year to non profits helping to music lovers  across the United States. <\/p>",
             "link_label": "",
             "link": ""
           }
@@ -191,7 +191,7 @@
         "column3"
       ],
       "settings": {
-        "title": "",
+        "title": "Our Guarantee",
         "image_width": "full",
         "image_ratio": "circle",
         "columns_desktop": 3,
