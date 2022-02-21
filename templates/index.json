@@ -192,8 +192,8 @@
       ],
       "settings": {
         "title": "",
-        "image_width": "third",
-        "image_ratio": "adapt",
+        "image_width": "full",
+        "image_ratio": "circle",
         "columns_desktop": 3,
         "column_alignment": "center",
         "background_style": "primary",
@@ -201,7 +201,7 @@
         "button_link": "",
         "swipe_on_mobile": true,
         "color_scheme": "background-1",
-        "padding_top": 36,
+        "padding_top": 28,
         "padding_bottom": 40
       }
     }
