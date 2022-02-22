@@ -210,6 +210,7 @@
       "type": "video-overlay",
       "settings": {
         "heading": "Big Poppa",
+        "cover_image": "shopify:\/\/shop_images\/big_poppa_stampley_-_YouTube.png",
         "video_url": "https:\/\/www.youtube.com\/watch?v=164auRMAsG4&feature=emb_title",
         "description": "",
         "color_scheme": "accent-1",
