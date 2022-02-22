@@ -1,28 +1,30 @@
 {
   "current": {
-    "colors_solid_button_labels": "#3f6a76",
-    "colors_accent_1": "#123fe1",
-    "gradient_accent_1": "linear-gradient(201deg, rgba(102, 171, 238, 1), rgba(82, 218, 236, 1) 100%)",
-    "colors_accent_2": "#0d40fa",
-    "gradient_accent_2": "linear-gradient(46deg, rgba(52, 133, 236, 1) 13%, rgba(170, 248, 219, 1) 86%)",
-    "colors_text": "#123fe1",
-    "colors_outline_button_labels": "#131418",
-    "colors_background_1": "#FFFFFF",
-    "type_header_font": "poppins_n4",
+    "colors_solid_button_labels": "#5177ef",
+    "colors_accent_1": "#dbe3fb",
+    "gradient_accent_1": "",
+    "colors_accent_2": "#dbe3fb",
+    "gradient_accent_2": "",
+    "colors_text": "#000000",
+    "colors_outline_button_labels": "#5177ef",
+    "colors_background_1": "#dbe3fb",
+    "gradient_background_1": "",
+    "colors_background_2": "#dbe3fb",
+    "type_header_font": "poppins_n5",
     "heading_scale": 100,
     "type_body_font": "poppins_n4",
     "body_scale": 110,
     "spacing_sections": 8,
     "spacing_grid_horizontal": 12,
-    "buttons_border_thickness": 4,
+    "buttons_border_thickness": 5,
     "buttons_radius": 0,
     "buttons_shadow_opacity": 25,
     "buttons_shadow_blur": 10,
     "variant_pills_border_thickness": 3,
     "variant_pills_border_opacity": 65,
     "inputs_shadow_vertical_offset": 6,
-    "text_boxes_border_thickness": 0,
-    "text_boxes_radius": 6,
+    "text_boxes_border_thickness": 4,
+    "text_boxes_radius": 10,
     "popup_border_thickness": 4,
     "badge_position": "bottom left",
     "sale_badge_color_scheme": "background-2",
@@ -36,7 +38,7 @@
             "type": "announcement",
             "settings": {
               "text": "We support your Musical Lifestyle",
-              "color_scheme": "inverse",
+              "color_scheme": "background-2",
               "link": ""
             }
           }
@@ -65,6 +67,7 @@
         "blocks": {
           "footer-0": {
             "type": "link_list",
+            "disabled": true,
             "settings": {
               "heading": "Quick links",
               "menu": "footer"
@@ -72,6 +75,7 @@
           },
           "footer-1": {
             "type": "link_list",
+            "disabled": true,
             "settings": {
               "heading": "Info",
               "menu": "footer"
@@ -79,6 +83,7 @@
           },
           "footer-2": {
             "type": "text",
+            "disabled": true,
             "settings": {
               "heading": "Our mission",
               "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
@@ -98,7 +103,7 @@
           "enable_country_selector": false,
           "enable_language_selector": false,
           "payment_enable": true,
-          "margin_top": 48,
+          "margin_top": 52,
           "padding_top": 36,
           "padding_bottom": 36
         }

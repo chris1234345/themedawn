@@ -48,24 +48,6 @@
         "show_text_below": false
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Mugs",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "background-1",
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "padding_top": 28,
-        "padding_bottom": 36
-      }
-    },
     "rich_text": {
       "type": "rich-text",
       "blocks": {
@@ -103,8 +85,40 @@
         "padding_bottom": 16
       }
     },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured products",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "accent-2",
+        "show_view_all": true,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 28,
+        "padding_bottom": 36
+      }
+    },
+    "video": {
+      "type": "video",
+      "settings": {
+        "heading": "Big Poppa Stampley",
+        "cover_image": "shopify:\/\/shop_images\/big_poppa_stampley_-_YouTube.png",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=164auRMAsG4",
+        "description": "Big Poppa Stampley",
+        "full_width": false,
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "collage": {
       "type": "collage",
+      "disabled": true,
       "blocks": {
         "collection-0": {
           "type": "collection",
@@ -140,26 +154,14 @@
         "padding_bottom": 36
       }
     },
-    "video": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "background-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "multicolumn": {
       "type": "multicolumn",
       "blocks": {
         "column1": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "title": "Amazing Art",
+            "text": "<p>We hire artists from all over the world and pay them a fair rate to use their desighn powers to help us indulge in our love of music.<\/p>",
             "link_label": "",
             "link": ""
           }
@@ -167,8 +169,8 @@
         "column2": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "title": "Complete Transparency",
+            "text": "<p>Each product on this store is printed on demand, meaning it's sent to be manufactured as soon as your order is placed. It may take a little longer, but it helps us keep prices as low as possible for music lovers like you.<\/p>",
             "link_label": "",
             "link": ""
           }
@@ -176,8 +178,8 @@
         "column3": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "title": "For A Good Cause",
+            "text": "<p>10% of our profits will be donated automatically at the end of each year to non profits helping to music lovers  across the United States. <\/p>",
             "link_label": "",
             "link": ""
           }
@@ -189,27 +191,27 @@
         "column3"
       ],
       "settings": {
-        "title": "",
-        "image_width": "third",
+        "title": "Our Guarantee",
+        "image_width": "full",
         "image_ratio": "adapt",
-        "columns_desktop": 4,
+        "columns_desktop": 3,
         "column_alignment": "center",
-        "background_style": "none",
+        "background_style": "primary",
         "button_label": "",
         "button_link": "",
-        "swipe_on_mobile": false,
+        "swipe_on_mobile": true,
         "color_scheme": "background-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 28,
+        "padding_bottom": 40
       }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection",
     "rich_text",
-    "collage",
+    "featured_collection",
     "video",
+    "collage",
     "multicolumn"
   ]
 }
