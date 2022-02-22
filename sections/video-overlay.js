@@ -14,3 +14,20 @@ const playerOptions = {
     loop: 1,
     playlist: bgVideoID,
 }
+
+const videoOverlay = document.querySelector('js-video-overlay');
+
+let ytPlayer;
+
+function onYoutubeIframeAPIReady() {
+    ytPlayer = new ytPlayer.Player('yt-player', {
+        width: '1280',
+        height: '720',
+        videoId: bgVideoID,
+        playerVars: playerOptions,
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+        }
+    })
+}
