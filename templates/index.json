@@ -36,7 +36,7 @@
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/pexels-edward-eyer-811838.jpg",
-        "image_overlay_opacity": 10,
+        "image_overlay_opacity": 20,
         "image_height": "medium",
         "adapt_height_first_image": false,
         "desktop_content_position": "bottom-center",
@@ -44,7 +44,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "inverse",
         "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
+        "stack_images_on_mobile": false,
         "show_text_below": false
       }
     },
