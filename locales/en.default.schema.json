@@ -899,6 +899,9 @@
           "label": "Second image"
         },
         "image_overlay_opacity": {
+          "label": "Banner box opacity"
+        },
+        "banner_box_opacity": {
           "label": "Image overlay opacity"
         },
         "image_height": {
