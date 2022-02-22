@@ -20,7 +20,7 @@ const videoOverlay = document.querySelector('js-video-overlay');
 let ytPlayer;
 
 function onYoutubeIframeAPIReady() {
-    ytPlayer = new ytPlayer.Player('yt-player', {
+    ytPlayer = new YT.Player('yt-player', {
         width: '1280',
         height: '720',
         videoId: bgVideoID,
@@ -29,5 +29,20 @@ function onYoutubeIframeAPIReady() {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
         }
-    })
+    });
+}
+
+function onPlayerReady(event) {
+    event.target.playVideo();
+
+    const videoDuration = event.target.getDuration();
+
+    setInterval(function() {
+        const videoCurrentTime = event.target.getCurrentTime();
+        const timeDifference = videoDuration - videoCurrentTime;
+
+        if (2 > timeDifference > 0) {
+            event.target.seekTo(0);
+        }
+    }, 1000);
 }
