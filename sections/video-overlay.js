@@ -53,4 +53,3 @@ function onPlayerStateChange(event) {
     }
 }
 
-console.log(videoOverlay, 'here');
