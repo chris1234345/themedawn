@@ -46,3 +46,11 @@ function onPlayerReady(event) {
         }
     }, 1000);
 }
+
+function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING) {
+        videoOverlay.classList.add('video-overlay-fadeOut');
+    }
+}
+
+console.log(videoOverlay, 'here');
