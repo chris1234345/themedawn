@@ -205,6 +205,17 @@
         "padding_top": 28,
         "padding_bottom": 40
       }
+    },
+    "1645545289986c1ba2": {
+      "type": "video-overlay",
+      "settings": {
+        "heading": "Big Poppa",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=NsmdEjmboSA",
+        "description": "",
+        "color_scheme": "accent-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -213,6 +224,7 @@
     "featured_collection",
     "video",
     "collage",
-    "multicolumn"
+    "multicolumn",
+    "1645545289986c1ba2"
   ]
 }

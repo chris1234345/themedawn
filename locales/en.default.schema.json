@@ -2345,7 +2345,7 @@
         "name": "Video"
       }
     },
-        "video_overlay": {
+    "video_overlay": {
       "name": "Video Overlay",
       "settings": {
         "heading": {
