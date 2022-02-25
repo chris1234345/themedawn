@@ -259,6 +259,12 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "16458310587c9ad7d4": {
+      "type": "testimonial-slider",
+      "settings": {
+        "testimonial-slider": ""
+      }
     }
   },
   "order": [
@@ -270,6 +276,7 @@
     "collage",
     "multicolumn",
     "1645555167b06ef9bb",
-    "164563594429c7da09"
+    "164563594429c7da09",
+    "16458310587c9ad7d4"
   ]
 }
