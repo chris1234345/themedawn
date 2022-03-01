@@ -160,23 +160,52 @@
 
 {% schema %}
 {
-    "name": "Testimonial Slider",
-    "settings": [
-    {
-        "id": "testimonial-slider",
-        "type":"text",
-        "label":"Add a testimonial slider"
-    }
-    ],
-    "templates": ["index"],
-    "presets": [
-    {
-        "name": " Testimonial Slider",
-        "category": "Sliders"
-    }
-
-    ]
-
+"name": "Testimonial Slider",
+"settings": [
+{
+"id": "testimonial-slider",
+"type": "text",
+"label": "Add a testimonial slider"
+}
+],
+"templates": ["index"],
+"presets": [
+{
+"name": "Testimonial Slider",
+"category": "Sliders"
+}
+],
+"blocks": [
+{
+"name": "Testimonial Card",
+"type": "testimonial-card",
+"settings": [
+{
+"type": "image_picker",
+"id": "avatar",
+"label": "Avatar Image"
+},
+{
+"type": "text",
+"id": "name",
+"label": "Name"
+},
+{
+"type": "text",
+"id": "testimonial",
+"label": "Testimonial Content"
+},
+{
+"type": "range",
+"id": "rating",
+"label": "Star Rating",
+"default": 5,
+"min": 0,
+"max": 5
+}
+]
+}
+]
 }
 {% endschema %}
 
@@ -187,34 +216,40 @@
 
 {% stylesheet %}
     
+section.testimonial-slider {
+margin-top: 2rem;
+margin-bottom: 5rem;
+}
+.testimonial-card:before {
+content: url('https://cdn.shopify.com/s/files/1/0554/0996/7243/t/3/assets/quote.png?v=1636742403');
+position:absolute;
+right:1rem;
+top:-2rem;
+}
 .testimonial-meta {
 display: flex;
 align-items: center;
 }
-
 .testimonial-meta img.avatar {
-    margin-right: 1rem;
-    width: 84px;
-    height: 84px;
+margin-right: 1rem;
+width: 84px;
+height: 84px;
 }
-
-.author-meta  h3 {
-    margin: 0 0px 2px 0;
-    font-weight: bold;
-    font-size: 2rem;
+.author-meta h3 {
+margin: 0 0px 2px 0;
+font-weight: bold;
+font-size: 2rem;
 }
-
-
 .testimonial-card {
-    padding: 2rem;
-    border: 1px solid #707070;
+padding: 2rem;
+border: 1px solid #707070;
+margin: 0 1rem;
+position:relative;
+margin-top: 30px;
 }
-
-
 .slick-slide .star-rating img {
-    display: inline!important;
+display: inline!important;
 }
-
 button.slick-arrow {
 background: black;
 border: none;
@@ -225,27 +260,22 @@ position: absolute;
 cursor: pointer;
 }
 button.slick-prev.slick-arrow {
-left: -62px;
-top: calc(30% - 27.5px);
+left: -45px;
+top: calc(50% - 27.5px);
 }
-
 button.slick-next.slick-arrow {
-left: -62px;
-top: calc(30% - 27.5px);
+right: -45px;
+top: calc(50% - 27.5px);
 }
-
 button.slick-prev.slick-arrow:before {
-content:url('https://cdn.shopify.com/s/files/1/0616/2107/6216/t/4/assets/arrowleft.png?v=93442936136916552');
+content:url('https://cdn.shopify.com/s/files/1/0554/0996/7243/t/3/assets/arrowleft.png');
 }
-
 button.slick-next.slick-arrow:before {
-content:url('https://cdn.shopify.com/s/files/1/0554/0996/7243/t/3/assets/chevron-left-solid-1.png');
+content:url('https://cdn.shopify.com/s/files/1/0554/0996/7243/t/3/assets/chevron-right.png');
 }
-
 button.slick-arrow:hover {
 opacity:0.75
 }
-
 .slick-dots li button {
 font-size: 0;
 line-height: 0;
@@ -259,7 +289,6 @@ border: 0;
 outline: none;
 background: transparent;
 }
-
 .slick-dots li button:before {
 font-family: 'slick';
 font-size: 5rem;
@@ -276,7 +305,6 @@ color: black;
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
-
 .slick-dots li.slick-active button:before {
 opacity: .75;
 color: black;
@@ -290,7 +318,6 @@ margin: 0 5px ;
 padding: 0;
 cursor: pointer;
 }
-
 .slick-dots {
 position: absolute;
 bottom: -25px ;
