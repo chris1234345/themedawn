@@ -220,10 +220,20 @@ align-items: center;
 <!-- scripts -->
 
 {% javascript %}
+{% javascript %}
 $('.testimonial-track').slick({
 infinite: true,
 slidesToShow: 3,
 slidesToScroll: 1,
+dots: true,
+responsive: [
+{
+breakpoint: 600,
+settings: {
+slidesToShow: 1,
+slidesToScroll: 1,
+}
+}
+]
 });
-
 {% endjavascript %}
