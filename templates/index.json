@@ -111,6 +111,15 @@
           "type": "testimonial-card",
           "settings": {
             "avatar": "shopify:\/\/shop_images\/pexels-mateus-souza-3586798.jpg",
+            "name": "Cristina Fredina",
+            "testimonial": "ssasdaasdasdasdsadsda",
+            "rating": 3
+          }
+        },
+        "4ee600a3-1fcb-42d7-85a1-72e34e8e05e6": {
+          "type": "testimonial-card",
+          "settings": {
+            "avatar": "shopify:\/\/shop_images\/pexels-mateus-souza-3586798.jpg",
             "name": "",
             "testimonial": "",
             "rating": 5
@@ -118,7 +127,8 @@
         }
       },
       "block_order": [
-        "c798a061-cc5d-4c22-976c-07f63cbfd98f"
+        "c798a061-cc5d-4c22-976c-07f63cbfd98f",
+        "4ee600a3-1fcb-42d7-85a1-72e34e8e05e6"
       ],
       "settings": {
         "testimonial-slider": ""
