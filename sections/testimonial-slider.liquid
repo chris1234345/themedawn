@@ -2,33 +2,37 @@
 <section class="testimonial-slider">
     <div class="page-width">
         <h2>{{ section.settings.testimonial-slider }}</h2>
-    <div class="testimonial-track">
-        {%- for block in section.blocks -%}
-        <div class="testimonial-card">
-            <div class="testimonial-meta">
-                <img src="{{ block.settings.avatar | img _url  }}" alt="Testimonial Image" class="avatar">
-                <div class="author-meta">
-                    <h3> James Brown </h3>
-                    <div class="star-rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
+        <div class="testimonial-track">
+
+            {%- for block in section.blocks -%}
+            <div class="testimonial-card">
+                <div class="testimonial-meta">
+                    <img src="{{ block.settings.avatar | img_url }}" alt="Testimonial Image" class="avatar">
+                    <div class="author-meta">
+                        <h3>{{ block.settings.name }}</h3>
+                        <div class="star-rating">
+
+                            {% for i in (1..5) %}
+                            {% if i > block.settings.rating %}
+                            {% break %}
+                            {% else %}
+                            <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
+                            {% endif %}
+                            {% endfor %}
+
+                        </div>
                     </div>
                 </div>
+                <div class="testimonial-content">
+                    <p>{{ block.settings.testimonial }}</p>
+                </div>
             </div>
-            <div class="testimonial-content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio illum quas temporibus veritatis magnam
-                    ipsum omnis id, velit ea autem iusto amet, neque repellendus accusantium!</p>
-            </div>
-        {%- endfor -%}
+            {%- endfor -%}
 
-
-        
-    </div>
+        </div>
     </div>
 </section>
+
 
 
 
