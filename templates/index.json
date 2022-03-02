@@ -146,7 +146,8 @@
         "8114c86e-16e1-4632-9435-c9afa40f2867": {
           "type": "testimonial-card",
           "settings": {
-            "name": "",
+            "avatar": "shopify:\/\/shop_images\/pexels-anastasia-shuraeva-5704720_1.png",
+            "name": "Katie Murray",
             "testimonial": "",
             "rating": 5
           }
