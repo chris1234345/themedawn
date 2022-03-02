@@ -3,33 +3,10 @@
     <div class="page-width">
         <h2>{{ section.settings.testimonial-slider }}</h2>
     <div class="testimonial-track">
+        {%- for block in section.blocks -%}
         <div class="testimonial-card">
             <div class="testimonial-meta">
-            <img src="{{ 'face1.png' | asset_url  }}" alt="Testimonial Image" class="avatar">
-            <div class="author-meta">
-            <h3> James Brown </h3>
-            <div class="star-rating">
-            <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-            <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-            <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-            <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-            <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-            </div>
-            </div>
-            </div>
-            <div class="testimonial-content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio illum quas temporibus veritatis magnam ipsum omnis id, velit ea autem iusto amet, neque repellendus accusantium!</p>
-            </div>
-       
-       
-       
-       
-       
-        </div>
-
-        <div class="testimonial-card">
-            <div class="testimonial-meta">
-                <img src="{{ 'face1.png' | asset_url  }}" alt="Testimonial Image" class="avatar">
+                <img src="{{ block.settings.avatar | img _url  }}" alt="Testimonial Image" class="avatar">
                 <div class="author-meta">
                     <h3> James Brown </h3>
                     <div class="star-rating">
@@ -45,112 +22,10 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio illum quas temporibus veritatis magnam
                     ipsum omnis id, velit ea autem iusto amet, neque repellendus accusantium!</p>
             </div>
-        
-        
-        
-        
-        
-        </div>
+        {%- -%}
 
-        <div class="testimonial-card">
-            <div class="testimonial-meta">
-                <img src="{{ 'face1.png' | asset_url  }}" alt="Testimonial Image" class="avatar">
-                <div class="author-meta">
-                    <h3> James Brown </h3>
-                    <div class="star-rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio illum quas temporibus veritatis magnam
-                    ipsum omnis id, velit ea autem iusto amet, neque repellendus accusantium!</p>
-            </div>
-        
-        
-        
-        
-        
-        </div>
 
-        <div class="testimonial-card">
-            <div class="testimonial-meta">
-                <img src="{{ 'face1.png' | asset_url  }}" alt="Testimonial Image" class="avatar">
-                <div class="author-meta">
-                    <h3> James Brown </h3>
-                    <div class="star-rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio illum quas temporibus veritatis magnam
-                    ipsum omnis id, velit ea autem iusto amet, neque repellendus accusantium!</p>
-            </div>
         
-        
-        
-        
-        
-        </div>
-
-        <div class="testimonial-card">
-            <div class="testimonial-meta">
-                <img src="{{ 'face1.png' | asset_url  }}" alt="Testimonial Image" class="avatar">
-                <div class="author-meta">
-                    <h3> James Brown </h3>
-                    <div class="star-rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio illum quas temporibus veritatis magnam
-                    ipsum omnis id, velit ea autem iusto amet, neque repellendus accusantium!</p>
-            </div>
-        
-        
-        
-        
-        
-        </div>
-
-        <div class="testimonial-card">
-            <div class="testimonial-meta">
-                <img src="{{ 'face1.png' | asset_url  }}" alt="Testimonial Image" class="avatar">
-                <div class="author-meta">
-                    <h3> James Brown </h3>
-                    <div class="star-rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                        <img src="{{ 'star.png' | asset_url }}" alt="Star Rating">
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio illum quas temporibus veritatis magnam
-                    ipsum omnis id, velit ea autem iusto amet, neque repellendus accusantium!</p>
-            </div>
-        
-        
-        
-        
-        
-        </div>
     </div>
     </div>
 </section>
