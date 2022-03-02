@@ -115,10 +115,20 @@
             "testimonial": "NIce",
             "rating": 2
           }
+        },
+        "c53e5813-593b-40ee-b1c2-818f94f71244": {
+          "type": "testimonial-card",
+          "settings": {
+            "avatar": "shopify:\/\/shop_images\/pexels-mateus-souza-3586798.jpg",
+            "name": "crhris",
+            "testimonial": "nice",
+            "rating": 5
+          }
         }
       },
       "block_order": [
-        "222079c8-e9bd-4633-b3dc-1d71bbb1578f"
+        "222079c8-e9bd-4633-b3dc-1d71bbb1578f",
+        "c53e5813-593b-40ee-b1c2-818f94f71244"
       ],
       "settings": {
         "testimonial-slider": ""
