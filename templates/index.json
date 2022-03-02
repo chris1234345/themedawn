@@ -155,7 +155,8 @@
         "86a22e02-1907-4ddb-8956-863dd4599877": {
           "type": "testimonial-card",
           "settings": {
-            "name": "",
+            "avatar": "shopify:\/\/shop_images\/pexels-marcio-bordin-1840608.png",
+            "name": "Amalia Baker",
             "testimonial": "",
             "rating": 5
           }
