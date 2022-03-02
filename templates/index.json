@@ -133,12 +133,40 @@
             "testimonial": "",
             "rating": 5
           }
+        },
+        "7e3d5553-7860-40f8-9bc3-4d96e1c1908d": {
+          "type": "testimonial-card",
+          "settings": {
+            "avatar": "shopify:\/\/shop_images\/pexels-spencer-selover-775358.png",
+            "name": "Max Planck",
+            "testimonial": "",
+            "rating": 5
+          }
+        },
+        "8114c86e-16e1-4632-9435-c9afa40f2867": {
+          "type": "testimonial-card",
+          "settings": {
+            "name": "",
+            "testimonial": "",
+            "rating": 5
+          }
+        },
+        "86a22e02-1907-4ddb-8956-863dd4599877": {
+          "type": "testimonial-card",
+          "settings": {
+            "name": "",
+            "testimonial": "",
+            "rating": 5
+          }
         }
       },
       "block_order": [
         "c798a061-cc5d-4c22-976c-07f63cbfd98f",
         "4ee600a3-1fcb-42d7-85a1-72e34e8e05e6",
-        "3d6d461a-33f8-498c-b322-8f467076fdcc"
+        "3d6d461a-33f8-498c-b322-8f467076fdcc",
+        "7e3d5553-7860-40f8-9bc3-4d96e1c1908d",
+        "8114c86e-16e1-4632-9435-c9afa40f2867",
+        "86a22e02-1907-4ddb-8956-863dd4599877"
       ],
       "settings": {
         "testimonial-slider": ""
