@@ -110,7 +110,7 @@
         "c798a061-cc5d-4c22-976c-07f63cbfd98f": {
           "type": "testimonial-card",
           "settings": {
-            "avatar": "shopify:\/\/shop_images\/pexels-mateus-souza-3586798.jpg",
+            "avatar": "shopify:\/\/shop_images\/ian-dooley-d1UPkiFd04A-unsplash.png",
             "name": "Cristina Fredina",
             "testimonial": "ssasdaasdasdasdsadsda",
             "rating": 3
@@ -119,16 +119,26 @@
         "4ee600a3-1fcb-42d7-85a1-72e34e8e05e6": {
           "type": "testimonial-card",
           "settings": {
-            "avatar": "shopify:\/\/shop_images\/pexels-mateus-souza-3586798.jpg",
+            "avatar": "shopify:\/\/shop_images\/ludvig-wiese-d-MfHM-jHwc-unsplash.png",
             "name": "jkkjjk",
             "testimonial": "jkkjkjkjkjk",
-            "rating": 4
+            "rating": 3
+          }
+        },
+        "3d6d461a-33f8-498c-b322-8f467076fdcc": {
+          "type": "testimonial-card",
+          "settings": {
+            "avatar": "shopify:\/\/shop_images\/good-faces-yliYi-2s9qg-unsplash.png",
+            "name": "",
+            "testimonial": "",
+            "rating": 5
           }
         }
       },
       "block_order": [
         "c798a061-cc5d-4c22-976c-07f63cbfd98f",
-        "4ee600a3-1fcb-42d7-85a1-72e34e8e05e6"
+        "4ee600a3-1fcb-42d7-85a1-72e34e8e05e6",
+        "3d6d461a-33f8-498c-b322-8f467076fdcc"
       ],
       "settings": {
         "testimonial-slider": ""
