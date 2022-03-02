@@ -107,28 +107,18 @@
     "16458310587c9ad7d4": {
       "type": "testimonial-slider",
       "blocks": {
-        "222079c8-e9bd-4633-b3dc-1d71bbb1578f": {
+        "c798a061-cc5d-4c22-976c-07f63cbfd98f": {
           "type": "testimonial-card",
           "settings": {
             "avatar": "shopify:\/\/shop_images\/pexels-mateus-souza-3586798.jpg",
-            "name": "Crsiti",
-            "testimonial": "NIce",
-            "rating": 2
-          }
-        },
-        "c53e5813-593b-40ee-b1c2-818f94f71244": {
-          "type": "testimonial-card",
-          "settings": {
-            "avatar": "shopify:\/\/shop_images\/pexels-mateus-souza-3586798.jpg",
-            "name": "crhris",
-            "testimonial": "nice",
+            "name": "",
+            "testimonial": "",
             "rating": 5
           }
         }
       },
       "block_order": [
-        "222079c8-e9bd-4633-b3dc-1d71bbb1578f",
-        "c53e5813-593b-40ee-b1c2-818f94f71244"
+        "c798a061-cc5d-4c22-976c-07f63cbfd98f"
       ],
       "settings": {
         "testimonial-slider": ""
