@@ -110,15 +110,65 @@
         "c798a061-cc5d-4c22-976c-07f63cbfd98f": {
           "type": "testimonial-card",
           "settings": {
-            "avatar": "shopify:\/\/shop_images\/pexels-mateus-souza-3586798.jpg",
-            "name": "",
-            "testimonial": "",
+            "avatar": "shopify:\/\/shop_images\/ian-dooley-d1UPkiFd04A-unsplash.png",
+            "name": "Rosaire Percy",
+            "testimonial": "We needed personalized mugs for a company event. This product was affordable and allowed us to create unique mugs specific to our event. I am",
+            "rating": 5
+          }
+        },
+        "4ee600a3-1fcb-42d7-85a1-72e34e8e05e6": {
+          "type": "testimonial-card",
+          "settings": {
+            "avatar": "shopify:\/\/shop_images\/ludvig-wiese-d-MfHM-jHwc-unsplash.png",
+            "name": "Malcolm Bernard",
+            "testimonial": "We needed personalized mugs for a company event. This product was affordable and allowed us to create unique mugs specific to our event.",
+            "rating": 5
+          }
+        },
+        "3d6d461a-33f8-498c-b322-8f467076fdcc": {
+          "type": "testimonial-card",
+          "settings": {
+            "avatar": "shopify:\/\/shop_images\/good-faces-yliYi-2s9qg-unsplash.png",
+            "name": "Columb Calvus",
+            "testimonial": "I don't know why anyone would give this a bad review! This cup is awesome! It's sturdy, holds a or of ☕ coffee and is fun! I am very impressed.",
+            "rating": 5
+          }
+        },
+        "7e3d5553-7860-40f8-9bc3-4d96e1c1908d": {
+          "type": "testimonial-card",
+          "settings": {
+            "avatar": "shopify:\/\/shop_images\/pexels-spencer-selover-775358.png",
+            "name": "Max Planck",
+            "testimonial": "This was a gift for a music-lover who’s in a band. He keeps it at his office, other colleagues can’t try to “accidentally” use it to show my appreciation.",
+            "rating": 5
+          }
+        },
+        "8114c86e-16e1-4632-9435-c9afa40f2867": {
+          "type": "testimonial-card",
+          "settings": {
+            "avatar": "shopify:\/\/shop_images\/pexels-anastasia-shuraeva-5704720_1.png",
+            "name": "Katie Murray",
+            "testimonial": "I bought this as a Christmas gift for a good friend of mine, who happens to be a violinist. She loves it! She not only loves the musical decorations.",
+            "rating": 5
+          }
+        },
+        "86a22e02-1907-4ddb-8956-863dd4599877": {
+          "type": "testimonial-card",
+          "settings": {
+            "avatar": "shopify:\/\/shop_images\/pexels-marcio-bordin-1840608.png",
+            "name": "Amalia Baker",
+            "testimonial": "This was a gift to my husband, who plays the guitar. He really likes it and uses it every day to drink his tea. I am glad I found this",
             "rating": 5
           }
         }
       },
       "block_order": [
-        "c798a061-cc5d-4c22-976c-07f63cbfd98f"
+        "c798a061-cc5d-4c22-976c-07f63cbfd98f",
+        "4ee600a3-1fcb-42d7-85a1-72e34e8e05e6",
+        "3d6d461a-33f8-498c-b322-8f467076fdcc",
+        "7e3d5553-7860-40f8-9bc3-4d96e1c1908d",
+        "8114c86e-16e1-4632-9435-c9afa40f2867",
+        "86a22e02-1907-4ddb-8956-863dd4599877"
       ],
       "settings": {
         "testimonial-slider": ""
