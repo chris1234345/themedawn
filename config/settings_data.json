@@ -65,12 +65,28 @@
       "footer": {
         "type": "footer",
         "blocks": {
+          "201969be-b34c-4aa6-8cea-6b3369b48506": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Turquoise_Earth_Icon_Environment_Logo__2_-removebg-preview.png",
+              "image_width": 200,
+              "alignment": "center"
+            }
+          },
           "footer-0": {
             "type": "link_list",
             "disabled": true,
             "settings": {
               "heading": "Quick links",
               "menu": "footer"
+            }
+          },
+          "footer-2": {
+            "type": "text",
+            "disabled": true,
+            "settings": {
+              "heading": "Our mission",
+              "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
             }
           },
           "footer-1": {
@@ -80,18 +96,20 @@
               "menu": "footer"
             }
           },
-          "footer-2": {
-            "type": "text",
+          "0d05b15f-d540-4532-b05a-20a2c7002e2f": {
+            "type": "link_list",
             "settings": {
-              "heading": "Our mission",
-              "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
+              "heading": "SHOP OUR STORE",
+              "menu": "shop-our-store"
             }
           }
         },
         "block_order": [
+          "201969be-b34c-4aa6-8cea-6b3369b48506",
           "footer-0",
+          "footer-2",
           "footer-1",
-          "footer-2"
+          "0d05b15f-d540-4532-b05a-20a2c7002e2f"
         ],
         "settings": {
           "color_scheme": "background-1",
