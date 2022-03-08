@@ -33,18 +33,17 @@ display: block;
 
 @media screen and (min-width: 750px) {
   .footer__content-top .grid {
-    row-gap: 6rem;
-    margin-bottom: 0;
+
   }
 }
 
 .footer__content-bottom {
-  border-top: solid 0.1rem rgba(var(--color-foreground), 0.08);
-  padding-top: 3rem;
+  border-top: solid 0.1rem var(--color-foreground-20);
+
 }
 
 .footer__content-bottom:only-child {
-  border-top: 0;
+ 
 }
 
 .footer__content-bottom-wrapper {
@@ -55,10 +54,7 @@ display: block;
 @media screen and (max-width: 749px) {
   .footer__content-bottom {
     flex-wrap: wrap;
-    padding-top: 0;
-    padding-left: 0;
-    padding-right: 0;
-    row-gap: 1.5rem;
+    
   }
 
   .footer__content-bottom-wrapper {
