@@ -58,13 +58,13 @@ height: 150px;
 
 @media screen and (max-width: 749px) {
   .footer__content-bottom {
-    flex-wrap: wrap;
+    
     height: 150px;
     
   }
 
   .footer__content-bottom-wrapper {
-    flex-wrap: wrap;
+    
     row-gap: 1.5rem;
     height: 150px;
   }
