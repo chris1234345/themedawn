@@ -102,6 +102,13 @@
               "heading": "SHOP OUR STORE",
               "menu": "shop-our-store"
             }
+          },
+          "0aceb959-774b-4440-9a13-606bd9f1e540": {
+            "type": "text",
+            "settings": {
+              "heading": "Heading",
+              "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
+            }
           }
         },
         "block_order": [
@@ -109,13 +116,14 @@
           "footer-0",
           "footer-2",
           "footer-1",
-          "0d05b15f-d540-4532-b05a-20a2c7002e2f"
+          "0d05b15f-d540-4532-b05a-20a2c7002e2f",
+          "0aceb959-774b-4440-9a13-606bd9f1e540"
         ],
         "settings": {
           "color_scheme": "background-1",
           "newsletter_enable": true,
           "newsletter_heading": "Subscribe to our emails",
-          "show_social": true,
+          "show_social": false,
           "enable_country_selector": false,
           "enable_language_selector": false,
           "payment_enable": true,
