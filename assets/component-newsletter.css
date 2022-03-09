@@ -72,10 +72,10 @@
 
 
 .neon-button {
-  color: hsl(317 100% 54%);
+  color: black;
   font-size: 3rem;
   display: inline-block;
   cursor: pointer;
   text-decoration: none;
-  border: hsl(317 100% 54%)  4px solid;
+  border: black  4px solid;
 }
