@@ -77,7 +77,7 @@
   display: inline-block;
   cursor: pointer;
   text-decoration: none;
-  color: white;
+  color: black;
   border: black 0.125em solid;
   padding: 0.25em 1em;
   border-radius: 0.25em;
@@ -122,6 +122,7 @@
 .neon-button:focus {
   color: white;
   text-shadow: none;
+  background: white;
 }
 
 .neon-button:hover::before,
