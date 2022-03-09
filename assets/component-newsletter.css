@@ -140,3 +140,8 @@
 .neon-button:focus::after {
   opacity: 2;
 }
+
+
+.container { 
+  display: flex;
+}
