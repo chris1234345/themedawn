@@ -93,7 +93,7 @@
   pointer-events: none;
   content: "";
   position: absolute;
-  background: white;
+  background: black;
   top: 120%;
   left: 0;
   width: 100%;
@@ -113,7 +113,7 @@
   right: 0;
   box-shadow: 0 0 2em 0.5em black;
   opacity: 0;
-  background-color: black;
+  background-color: white;
   z-index: -1;
   transition: opacity 100ms linear;
 }
