@@ -88,6 +88,8 @@
 
   position: relative;
   opacity: 2;
+  outline: 2px solid black;
+  transition: outline-offset 250ms ease;
 }
 
 .neon-button::before {
