@@ -123,14 +123,14 @@
   color: black;
   text-shadow: none;
   background-color: white;
-  opacity: 1;
+  opacity: 2;
 }
 
 .neon-button:hover::before,
 .neon-button:focus::before {
-  opacity: 1;
+  opacity: 2;
 }
 .neon-button:hover::after,
 .neon-button:focus::after {
-  opacity: 1;
+  opacity: 2;
 }
