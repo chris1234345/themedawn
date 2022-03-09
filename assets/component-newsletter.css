@@ -79,4 +79,5 @@
   text-decoration: none;
   border: black  0.125em solid;
   padding: .25em 1.25em;
+  border-radius: 0.25em;
 }
