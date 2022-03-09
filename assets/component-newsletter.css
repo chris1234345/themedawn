@@ -86,7 +86,9 @@ text-shadow:
 
 box-shadow: 0 0 0.5em 0 black,  inset 0 0 0.5em 0 black;
 position: relative;
+
 }
+
 
 .neon-button::before {
   pointer-events: none;
@@ -113,13 +115,20 @@ position: relative;
   right: 0;
   box-shadow: 0 0 2em 0.5em black;
   opacity: 0 ;
+  background-color: black;
+  z-index: -1;
+  transition: opacity 100ms linear;
 }
 
 
 .neon-button:hover,
 .neon-button:focus
 {
-  background: black;
   color: #DBE3FB;
   text-shadow: none;
+}
+
+
+.neon-button:hover::after{
+  opacity: 1;
 }
