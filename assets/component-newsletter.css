@@ -88,7 +88,7 @@
 
   position: relative;
   opacity: 2;
-  outline: 3px solid white;
+  outline: 2px solid black;
   transition: outline-offset 250ms ease;
 }
 
@@ -129,7 +129,7 @@
   text-shadow: none;
   background-color: white;
   opacity: 2;
-  outline-offset: -6px;
+  outline-offset: -12px;
 }
 
 .neon-button:hover::before,
