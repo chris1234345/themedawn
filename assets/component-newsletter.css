@@ -89,6 +89,7 @@ position: relative;
 }
 
 .neon-button::before {
+  pointer-events: none;
   content: '';
   position: absolute;
   background: black;
