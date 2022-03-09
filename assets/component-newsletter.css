@@ -78,6 +78,6 @@ display: inline-block;
 cursor: pointer;
 text-decoration: none;
 border: black 0.125em solid;
-padding: 0.25em 1.25;
+padding: .25em 1.25em;
 border-radius: 0.25em;
 }
