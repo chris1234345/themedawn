@@ -83,4 +83,6 @@ border-radius: 0.25em;
 
 text-shadow: 
 0 0 0.125em hsl(0 0% 100% / .5),0 0 0.20em  currentColor ;
+
+box-shadow: 0 0 0.5em 0 black
 }
