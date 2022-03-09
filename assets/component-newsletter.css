@@ -116,6 +116,7 @@
   background-color: white;
   z-index: -1;
   transition: opacity 100ms linear;
+  opacity: 2;
 }
 
 .neon-button:hover,
