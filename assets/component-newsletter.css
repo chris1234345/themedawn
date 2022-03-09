@@ -98,5 +98,5 @@ position: relative;
   height: 100%;
 
   transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
-  filter: blur(10em);
+  filter: blur(8em);
 }
