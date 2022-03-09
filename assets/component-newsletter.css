@@ -108,7 +108,7 @@ position: relative;
 .neon-button:hover,
 .neon-button:focus
 {
-  background: black;
-  color: white;
+  background: #DBE3FB;
+  color: black;
   text-shadow: none;
 }
