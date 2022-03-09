@@ -132,9 +132,6 @@
                   <button type="submit" class="newsletter-form__button field__button" name="commit" id="Subscribe" aria-label="{{ 'newsletter.button_label' | t }}">
                     {% render 'icon-arrow' %}
                   </button>
-                  <div>
-                    <a href="#" class="neon-button">Click here</a>
-                  </div>
                 </div>
                 {%- if form.errors -%}
                   <small class="newsletter-form__message form__message" id="ContactFooter-error">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</small>
