@@ -144,4 +144,5 @@
 
 .container { 
   display: flex;
+  position: absolute;
 }
