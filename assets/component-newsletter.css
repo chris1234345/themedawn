@@ -88,7 +88,7 @@
 
   position: relative;
   opacity: 2;
-  outline: 2px solid white;
+  outline: 3px solid white;
   transition: outline-offset 250ms ease;
 }
 
