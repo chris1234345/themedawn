@@ -111,9 +111,9 @@
   bottom: 0;
   left: 0;
   right: 0;
-  box-shadow: 0 0 2em 0.5em var(--clr-neon);
+  box-shadow: 0 0 2em 0.5em black;
   opacity: 0;
-  background-color: var(--clr-neon);
+  background-color: black;
   z-index: -1;
   transition: opacity 100ms linear;
 }
