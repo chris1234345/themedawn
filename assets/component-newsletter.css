@@ -73,9 +73,9 @@
 
 .neon-button {
   color: black;
-  font-size: 3rem;
+  font-size: 2rem;
   display: inline-block;
   cursor: pointer;
   text-decoration: none;
-  border: black  4px solid;
+  border: black  3px solid;
 }
