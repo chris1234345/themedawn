@@ -6,6 +6,10 @@
   display: none;
 }
 
+.title-wrapper-with-link.title-wrapper--no-top-margin{
+  filter: drop-shadow(2px 2px 2px black);
+}
+
 .multicolumn .title-wrapper-with-link {
   margin-top: 0;
 }
