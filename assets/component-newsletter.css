@@ -146,4 +146,5 @@
   display: flex;
   position: absolute;
   position: relative;
+  float: left;
 }
