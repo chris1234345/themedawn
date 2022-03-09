@@ -69,3 +69,9 @@
 .newsletter-form__button .icon {
   width: 1.5rem;
 }
+
+
+.neon-button {
+  color: hsl(317 100% 54%);
+  font-size: 1rem;
+}
