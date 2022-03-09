@@ -123,6 +123,7 @@
   color: black;
   text-shadow: none;
   background-color: white;
+  opacity: 1;
 }
 
 .neon-button:hover::before,
