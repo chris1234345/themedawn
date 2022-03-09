@@ -72,12 +72,12 @@
 
 
 .neon-button {
-  color: black;
-  font-size: 2rem;
-  display: inline-block;
-  cursor: pointer;
-  text-decoration: none;
-  border: black  0.125em solid;
-  padding: .25em 1.25em;
-  border-radius: 0.25em;
+color: black;
+font-size: 2rem;
+display: inline-block;
+cursor: pointer;
+text-decoration: none;
+border: black 0.125 solid;
+padding: 0.25em 1.25;
+border-radius: 0.25em;
 }
