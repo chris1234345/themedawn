@@ -122,7 +122,7 @@
 .neon-button:focus {
   color: white;
   text-shadow: none;
-  background: white;
+  background-color: white;
 }
 
 .neon-button:hover::before,
