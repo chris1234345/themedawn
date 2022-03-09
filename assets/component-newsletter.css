@@ -124,7 +124,7 @@ position: relative;
 .neon-button:hover,
 .neon-button:focus
 {
-  color: #DBE3FB;
+  color: white;
   text-shadow: none;
 }
 
