@@ -129,6 +129,7 @@
   text-shadow: none;
   background-color: white;
   opacity: 2;
+  outline-offset: -6px;
 }
 
 .neon-button:hover::before,
