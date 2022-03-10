@@ -124,9 +124,9 @@
 
 .neon-button:hover,
 .neon-button:focus {
-  color:#5177EF;
+  color:black;
   text-shadow: none;
-  background-color: black;
+  background-color: #5177EF;
   opacity: 2;
   
 }
