@@ -116,7 +116,7 @@
   right: 0;
   box-shadow: 0 0 2em 0.5em #5177EF;
   opacity: 0;
-  background-color: white;
+  background-color: #5177EF;
   z-index: -1;
   transition: opacity 100ms linear;
   opacity: 2;
@@ -126,7 +126,7 @@
 .neon-button:focus {
   color:#5177EF;
   text-shadow: none;
-  background-color: white;
+  background-color: #5177EF;
   opacity: 2;
   
 }
