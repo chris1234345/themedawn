@@ -126,7 +126,7 @@
 .neon-button:focus {
   color:#5177EF;
   text-shadow: none;
-  background-color: #5177EF;
+  background-color: black;
   opacity: 2;
   
 }
