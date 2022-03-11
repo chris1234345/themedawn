@@ -215,10 +215,10 @@ html.no-js .no-js-hidden {
 }
 
   header.header.header--middle-left.page-width.header--has-menu {
-    background-color: transparent;
-    position: absolute;
-    z-index: 1;
+   background-color: transparent;
+    position: absolte;
     border-bottom: 0;
+    z-index: 1;
   }
 .page-width-desktop {
   padding: 0;
