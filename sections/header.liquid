@@ -14,29 +14,9 @@
 <noscript>{{ 'component-cart-notification.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-cart-items.css' | asset_url | stylesheet_tag }}</noscript>
 
-<script>
-window.onload = function () {
-const mainSection = document.querySelector("#shopify-section-template-...");
-
-if (mainSection) {
-const stickyHead = document.querySelector(".header-wrapper");
-stickyHead.style.backgroundColor = "transparent";
-
-window.addEventListener('scroll', event => {
-if (window.scrollY > 200) {
-stickyHead.style.backgroundColor = "var(--gradient-background)";
-} else {
-stickyHead.style.backgroundColor = "transparent";
-}
-})
-}
-}
-</script>
 
 <style>
-  #your-image-section with ID {
-margin-top: -110px !important;
-}
+  
   }
   header-drawer {
     justify-self: start;
