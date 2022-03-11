@@ -567,17 +567,6 @@
     onScroll() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                                                                                       
-      if (this.mainSection) {
-      if (window.pageYoffset > 30 || document.documentElement.scrollTop > 30 {
-      this.header.style.backgroundColor = "var(--gradient-background)";
-      } else {                                                               
-      this.header.style.backgroundColor = "transparent";
-      }                                                 
-      } else {
-      this.header.style.backgroundColor = "var(--gradient-background)";                                                 
-
-      if (this.predictiveSearch && this.predictiveSearch.isOpen) return;
-
       if (scrollTop > this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
         requestAnimationFrame(this.hide.bind(this));
       } else if (scrollTop < this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
