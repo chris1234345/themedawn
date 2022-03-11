@@ -35,9 +35,9 @@
         "button"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/pexels-edward-eyer-811838.jpg",
+        "image": "shopify:\/\/shop_images\/pexels-shvets-production-8929525_2.jpg",
         "image_overlay_opacity": 10,
-        "banner_box_opacity": 20,
+        "banner_box_opacity": 30,
         "image_height": "medium",
         "adapt_height_first_image": false,
         "desktop_content_position": "bottom-center",
