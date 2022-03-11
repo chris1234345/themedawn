@@ -226,14 +226,14 @@
 
   position: relative;
   opacity: 7;
-  color: #DBE3FB;
+  color: black;
 }
 
 .form-button::before {
   pointer-events: none;
   content: "";
   position: absolute;
-  background: #DBE3FB;
+  background: black;
   top: 120%;
   left: 0;
   width: 100%;
