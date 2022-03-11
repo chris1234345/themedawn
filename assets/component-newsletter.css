@@ -204,7 +204,7 @@
 
 .form-button {
   background: blue;
-  color: white;
+  color: #DBE3FB;
   padding: 1.25em 2.25em;
   border-radius: 3px;
 }
@@ -213,7 +213,7 @@
   .form {
     flex-direction: row;
     max-width: 550px;
-    border: 10px solid white;
+    border: 10px solid #DBE3FB;
     border-radius: 3em;
   }
 
