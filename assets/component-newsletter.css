@@ -217,7 +217,7 @@
   cursor: pointer;
   text-decoration: none;
   color: #5177EF;
-  /* border: #5177EF 0.25em solid; */
+  border: white 0.25em solid;
   padding: 0.25em 1em;
   border-radius: 0.25em;
 
