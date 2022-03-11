@@ -216,7 +216,7 @@ html.no-js .no-js-hidden {
 
   header.header.header--middle-left.page-width.header--has-menu {
    background-color: transparent;
-    position: absolte;
+    position: absolute;
     border-bottom: 0;
     z-index: 1;
   }
