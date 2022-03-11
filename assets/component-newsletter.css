@@ -261,7 +261,7 @@
 @media only screen and (min-width: 550px) {
   .form {
     flex-direction: row;
-    max-width: 500px;
+    max-width: 600px;
     border: 10px solid #DBE3FB;
     border-radius: 3em;
   }
