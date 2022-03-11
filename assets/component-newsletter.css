@@ -181,7 +181,7 @@
 
 .form-input:focus::placeholder {
   opacity: 0.85;
-  color: blue;
+  color: white;
 }
 
 .form-input::placeholder {
