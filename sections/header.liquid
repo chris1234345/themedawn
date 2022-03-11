@@ -14,6 +14,16 @@
 <noscript>{{ 'component-cart-notification.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-cart-items.css' | asset_url | stylesheet_tag }}</noscript>
 
+window.addEventListener('scroll', event => {
+if (window.scrollY > 200) {
+stickyHead.style.backgroundColor = "var(--gradient-background)";
+} else {
+stickyHead.style.backgroundColor = "transparent";
+}
+})
+}
+}
+</script>
 <style>
   #Banner-template--15709850140920__image_banner {
     top: -110px;
@@ -548,7 +558,7 @@
       window.addEventListener('scroll', this.onScrollHandler, false);
 
       this.createObserver();
-<!--       this.mainSection = document.querySelector("#shopify-section-template--15709850140920__image_banner"); -->
+      this.mainSection = document.querySelector("#shopify-section-template--15709850140920__image_banner");
     }
 
     disconnectedCallback() {
@@ -569,7 +579,7 @@
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                                                                                       
       if (this.mainSection) {
-      if (window.pageYOffset > 30 || document.documentElement.scrollTop > 30 {
+      if (window.pageYoffset > 30 || document.documentElement.scrollTop > 30 {
       this.header.style.backgroundColor = "var(--gradient-background)";
       } else {                                                               
       this.header.style.backgroundColor = "transparent";
