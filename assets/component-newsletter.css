@@ -122,8 +122,8 @@
   opacity: 2;
 }
 
-.neon-button:hover,
-.neon-button:focus {
+.form-button:hover,
+.form-button:focus {
   color:white;
   text-shadow: none;
   background-color: #5177EF;
@@ -131,12 +131,12 @@
   
 }
 
-.neon-button:hover::before,
-.neon-button:focus::before {
+.form-button:hover::before,
+.form-button:focus::before {
   opacity: 2;
 }
-.neon-button:hover::after,
-.neon-button:focus::after {
+.form-button:hover::after,
+.form-button:focus::after {
   opacity: 2;
 }
 
