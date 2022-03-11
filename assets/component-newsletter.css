@@ -207,6 +207,7 @@
   color: #DBE3FB;
   padding: 1.25em 2.25em;
   border-radius: 3px;
+  opacity: 1;
 }
 
 @media only screen and (min-width: 550px) {
