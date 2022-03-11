@@ -181,7 +181,7 @@
 
 .form-input:focus::placeholder {
   opacity: 0.85;
-  color: var(--clr);
+  color: blue;
 }
 
 .form-input::placeholder {
@@ -203,7 +203,7 @@
 }
 
 .form-button {
-  background: var(--clr);
+  background: blue;
   color: white;
   padding: 1.25em 2.25em;
   border-radius: 3px;
