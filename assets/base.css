@@ -101,16 +101,6 @@ text-shadow: none;
   opacity:0;
   transition:  opacity 100ms linear;
 }
-.button--secondary::before,
-.button--secondary:hover:focus
-{
-  opacity: 1;
-  z-index: -1;
-}
-.button--secondary:hover::after{
-  opacity: 1;
-  z-index: -1;
-}
 
 
 .color-background-2 .button--secondary,
