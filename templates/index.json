@@ -338,6 +338,15 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "1647205957c7194925": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"klaviyo-form-YhY6mL\"><\/div>",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
@@ -351,6 +360,7 @@
     "multicolumn",
     "1645555167b06ef9bb",
     "1646760428bb1ebc2a",
-    "164563594429c7da09"
+    "164563594429c7da09",
+    "1647205957c7194925"
   ]
 }
