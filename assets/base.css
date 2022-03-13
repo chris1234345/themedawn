@@ -77,7 +77,16 @@
   --color-button-text: var(--color-base-outline-button-labels);
   --color-button: var(--color-background);
   --alpha-button-background: 1;
+  position: relative;
 }
+
+.button--secondary:hover,
+.button--secondary:focus {
+color: #5177EF;
+text-shadow: none;
+}
+
+
 
 .color-background-2 .button--secondary,
 .color-accent-1 .button--secondary,
