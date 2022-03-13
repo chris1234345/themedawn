@@ -81,6 +81,8 @@
   text-shadow: 0 0 0.125em #5177EF, 0 0 0.125em white;
   box-shadow: inset 0 0 0.5em 0 #5177EF, 0 0 0.5em 0 #5177EF;
   transition: background-color 100ms linear;
+  text-decoration: none;
+  display: flex;
 }
 
 .button--secondary:hover,
