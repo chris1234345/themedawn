@@ -78,6 +78,8 @@
   --color-button: var(--color-background);
   --alpha-button-background: 1;
   position: relative;
+  text-shadow: 0 0 0.125em #5177EF, 0 0 0.125em white;
+  box-shadow: inset 0 0 0.5em 0 #5177EF, 0 0 0.5em 0 #5177EF;
 }
 
 .button--secondary:hover,
