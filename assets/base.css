@@ -80,6 +80,7 @@
   position: relative;
   text-shadow: 0 0 0.125em #5177EF, 0 0 0.125em white;
   box-shadow: inset 0 0 0.5em 0 #5177EF, 0 0 0.5em 0 #5177EF;
+  transition: background-color 100ms linear;
 }
 
 .button--secondary:hover,
@@ -88,6 +89,16 @@ color: #5177EF;
 text-shadow: none;
 }
 
+.button--secondary::after{
+  content: '';
+  position: absolute;
+  background-color: #5177EF;
+  z-index: -1;
+
+  box-shadow: 0 0 0.5em 0.1em #5177EF;
+  opacity:0;
+  transition:  opacity 100ms linear;
+}
 
 
 .color-background-2 .button--secondary,
