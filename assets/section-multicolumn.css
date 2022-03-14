@@ -5,6 +5,9 @@
 h2.title:hover {
   color: white;
 }
+h2.collage-wrapper-title:hover {
+  color: white;
+}
 
 .multicolumn.no-heading .title {
   display: none;
