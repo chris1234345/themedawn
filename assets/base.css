@@ -88,7 +88,7 @@
 
 .button--secondary:hover,
 .button--secondary:focus {
-color: #5177EF;
+color: #DBE3FB;
 text-shadow: none;
 }
 
@@ -103,6 +103,13 @@ text-shadow: none;
   transition:  opacity 100ms linear;
 }
 
+.button--secondary::before,
+.button--secondary:focus {
+  opacity: 1;
+}
+.neon-button::after {
+  opacity: 1;
+}
 
 .color-background-2 .button--secondary,
 .color-accent-1 .button--secondary,
