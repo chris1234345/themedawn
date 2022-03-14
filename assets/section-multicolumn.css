@@ -12,7 +12,9 @@ h2.collage-wrapper-title:hover {
 .multicolumn.no-heading .title {
   display: none;
 }
-
+a.full-unstyled-link:hover {
+  color: white;
+}
 .title-wrapper-with-link.title-wrapper--no-top-margin{
   filter: drop-shadow(2px 2px 2px #5177EF);
 }
