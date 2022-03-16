@@ -2298,29 +2298,7 @@ input[type="checkbox"] {
   width: 100%;
 }
 
-/* Experiment */
-.header__heading-logo { 
-  text-shadow: 0 0 50px  #DBE3FB,
-  0 0 100px  #DBE3FB,
-  0 0 150px  #DBE3FB,
-  0 0 200px  #DBE3FB,
-  0 0 250px  #DBE3FB;
-  animation: animate 5s linear  infinite;
-}
 
-
-@keyframes animate { 
-  0%
-  {
-    filter: hue-rotate(0deg);
-  }
-  100%
-  {
-    filter: hue-rotate(360deg);
-  }
-}
-
-/* END experiment */
 @media screen and (max-width: 989px) {
   .header__heading,
   .header__heading-link {
