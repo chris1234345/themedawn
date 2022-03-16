@@ -2593,6 +2593,10 @@ details[open] > .header__icon--menu .icon-hamburger {
   padding: 0 1rem;
 }
 
+a.header__menu-item.header__menu-item.list-menu__item.link.link--text.focus-inset:hover {
+  color: #DBE3FB;
+}
+
 .header__menu-item {
   padding: 1.2rem;
   text-decoration: none;
