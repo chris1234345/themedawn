@@ -2592,7 +2592,12 @@ details[open] > .header__icon--menu .icon-hamburger {
 .header__menu {
   padding: 0 1rem;
 }
-
+svg.icon.icon-cart-empty:hover  {
+color: #DBE3FB;
+}
+svg.modal__toggle-open.icon.icon-search:hover {
+  color: #DBE3FB;
+}
 a.header__menu-item.header__menu-item.list-menu__item.link.link--text.focus-inset:hover {
   color: #DBE3FB;
 }
