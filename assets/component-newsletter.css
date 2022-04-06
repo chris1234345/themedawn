@@ -367,3 +367,7 @@
 .form12 {
   display: grid;
 }
+
+.newstext {
+  width: 50%;
+}
