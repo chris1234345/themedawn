@@ -292,7 +292,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
-  background-image: url(/b14.png);
+  background-image: url(/assets/b14.png);
   background-repeat: no-repeat;
   background-position: 20% 30%;
   background-color: #041e42;
@@ -326,4 +326,40 @@
   justify-content: space-between;
   position: relative;
   left: 60em;
+}
+#newsletter span {
+  color: #ffbd27;
+}
+
+#newsletter input {
+  height: 3.125rem;
+  padding: 0 1.2em;
+  font-size: 14px;
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  outline: none;
+}
+
+#newsletter button {
+  background-color: #088178;
+  color: white;
+  white-space: nowrap;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+
+}
+
+#newsletter button {
+  background-color: #088178;
+  color: white;
+  white-space: nowrap;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+
+}
+
+#newsletter .form {
+  display: flex;
+  width: 40%;
 }
