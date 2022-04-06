@@ -149,7 +149,7 @@
   align-items: left;
 }
 
-.form {
+/* .form {
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 30px rgb(255, 255, 255);
@@ -157,7 +157,7 @@
   overflow: hidden;
   width: 80%;
   max-width: 300px;
-}
+} */
 
 .form-item {
   display: flex;
@@ -258,12 +258,6 @@
   opacity: 2;
 }
 @media only screen and (min-width: 550px) {
-  .form {
-    flex-direction: row;
-    max-width: 650px;
-    border: 10px solid #DBE3FB;
-    border-radius: 3em;
-  }
 
 
 
