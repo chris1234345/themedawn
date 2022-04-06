@@ -363,3 +363,7 @@
   display: flex;
   width: 35%;
 }
+
+.grid {
+  display: grid;
+}
