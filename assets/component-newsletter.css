@@ -367,7 +367,7 @@
 .form12 {
   display: grid;
 }
-#newsletter h4 {
+#newsletter p {
   position: relative;
   left: 1em;
 }
