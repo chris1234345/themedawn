@@ -68,6 +68,6 @@ section#newsletter {
 
 section#newsletter p {
   position: relative;
-  top: 6em;
+  bottom: 6em;
   right: 2em;
 }
