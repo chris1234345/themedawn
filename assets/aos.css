@@ -61,5 +61,7 @@ h2.footer-block__heading {
 }
 
 section#newsletter {
-  min-height: 10vh;
+  min-height: 15vh;
+  display:flex;
+  
 }
