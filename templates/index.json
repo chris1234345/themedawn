@@ -350,6 +350,18 @@
     },
     "16495172919364097a": {
       "type": "customize",
+      "blocks": {
+        "e7de00d0-4606-4867-a761-dca0a262db57": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you have a question?",
+            "answer": "<p>I have an answer<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "e7de00d0-4606-4867-a761-dca0a262db57"
+      ],
       "settings": {
       }
     }
