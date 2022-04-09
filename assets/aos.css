@@ -32,7 +32,7 @@ text-decoration: none;
 .header__menu-item:hover:before {
   transform-origin: left bottom;
   transform: scaleX(1);
-  background: rgb(var(--color-foreground));
+  background: #CFD7ED;
     }
 
 .list-menu--inline li {
