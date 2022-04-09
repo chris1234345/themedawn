@@ -214,7 +214,7 @@
       document.documentElement.classList.add('shopify-design-mode');
     }
     </script>
-  </head>
+   {{ 'customized-styles.css' | asset_url | stylesheet_tag }}  </head>
 
   <body class="gradient">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
