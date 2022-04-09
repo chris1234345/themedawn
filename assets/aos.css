@@ -60,3 +60,6 @@ h2.footer-block__heading {
   text-align:center;
 }
 
+section#newsletter {
+  min-height: 50vh;
+}
