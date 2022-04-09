@@ -121,7 +121,7 @@
           "0aceb959-774b-4440-9a13-606bd9f1e540"
         ],
         "settings": {
-          "color_scheme": "background-1",
+          "color_scheme": "inverse",
           "newsletter_enable": true,
           "newsletter_heading": "",
           "show_social": false,
