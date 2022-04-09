@@ -2896,3 +2896,9 @@ details-disclosure > details {
     }
   }
 }
+  
+  
+  
+h1.main-page-title.page-title.h0 {
+  display:none;
+}
