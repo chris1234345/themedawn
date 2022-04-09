@@ -61,9 +61,5 @@ h2.footer-block__heading {
 }
 
 section#newsletter {
-  min-height: 20vh;
-}
-
-footer.footer.color-inverse.gradient.section-footer-padding {
   min-height: 10vh;
 }
