@@ -54,3 +54,8 @@ text-decoration: none;
 a.link.link--text.list-menu__item.list-menu__item--link {
   color:white;
 }
+
+h2.footer-block__heading {
+  color: white;
+  text-align:center;
+}
