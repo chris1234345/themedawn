@@ -50,3 +50,7 @@ text-decoration: none;
    font-size: calc(var(--font-heading-scale) * 1.3rem); 
   }
 }
+
+a.link.link--text.list-menu__item.list-menu__item--link {
+  color:white;
+}
