@@ -55,3 +55,7 @@
 .h1-red {
   color:red
 }
+
+.h1-red h1 {
+  color:red;
+}
