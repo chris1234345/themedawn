@@ -1,6 +1,6 @@
 .header__active-menu-item {
   text-decoration: none;
-  color: rgba(--color-foreground), 0.75;
+  color: #CFD7ED, 0.75;
     }
 
 .header__menu-item {
@@ -24,7 +24,7 @@ text-decoration: none;
   left: 1.2rem;
   right: 1.2rem;
   height: 1px;
-  background: rgb(var(--color-foreground));
+  background: #CFD7ED;
     transform: scaleX(0);
     transition: transform 0.5s ease 0s;
     }
