@@ -46,3 +46,7 @@
   max-height: 100vh;
   padding: 1em;
 }
+
+.color-red {
+  color:red;
+}
