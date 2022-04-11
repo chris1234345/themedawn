@@ -341,6 +341,7 @@
     },
     "1647205957c7194925": {
       "type": "custom-liquid",
+      "disabled": true,
       "settings": {
         "custom_liquid": "<div class=\"klaviyo-form-YhY6mL\"><\/div>",
         "color_scheme": "background-1",
@@ -350,6 +351,7 @@
     },
     "16495172919364097a": {
       "type": "customize",
+      "disabled": true,
       "blocks": {
         "e7de00d0-4606-4867-a761-dca0a262db57": {
           "type": "faq",

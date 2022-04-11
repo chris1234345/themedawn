@@ -68,8 +68,8 @@
           "201969be-b34c-4aa6-8cea-6b3369b48506": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Turquoise_Earth_Icon_Environment_Logo__2_-removebg-preview.png",
-              "image_width": 200,
+              "image": "shopify:\/\/shop_images\/chris_img.png",
+              "image_width": 165,
               "alignment": "center"
             }
           },
@@ -121,7 +121,7 @@
           "0aceb959-774b-4440-9a13-606bd9f1e540"
         ],
         "settings": {
-          "color_scheme": "background-1",
+          "color_scheme": "inverse",
           "newsletter_enable": true,
           "newsletter_heading": "",
           "show_social": false,
