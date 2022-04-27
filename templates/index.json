@@ -116,6 +116,7 @@
         },
         "collection-1": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "collection": "for-the-holidaze"
           }
