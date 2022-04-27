@@ -96,19 +96,19 @@
               "menu": "footer"
             }
           },
-          "0d05b15f-d540-4532-b05a-20a2c7002e2f": {
-            "type": "link_list",
-            "settings": {
-              "heading": "SHOP OUR STORE",
-              "menu": "shop-our-store"
-            }
-          },
           "0aceb959-774b-4440-9a13-606bd9f1e540": {
             "type": "text",
             "disabled": true,
             "settings": {
               "heading": "Heading",
               "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
+            }
+          },
+          "0d05b15f-d540-4532-b05a-20a2c7002e2f": {
+            "type": "link_list",
+            "settings": {
+              "heading": "SHOP OUR STORE",
+              "menu": "shop-our-store"
             }
           }
         },
@@ -117,8 +117,8 @@
           "footer-0",
           "footer-2",
           "footer-1",
-          "0d05b15f-d540-4532-b05a-20a2c7002e2f",
-          "0aceb959-774b-4440-9a13-606bd9f1e540"
+          "0aceb959-774b-4440-9a13-606bd9f1e540",
+          "0d05b15f-d540-4532-b05a-20a2c7002e2f"
         ],
         "settings": {
           "color_scheme": "inverse",
