@@ -109,14 +109,9 @@
       "blocks": {
         "collection-0": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "collection": "musical-t-shirts"
-          }
-        },
-        "90715b40-b539-480d-8dc3-ec7c80acd750": {
-          "type": "collection",
-          "settings": {
-            "collection": "musical-programs"
           }
         },
         "collection-1": {
@@ -124,12 +119,18 @@
           "settings": {
             "collection": "for-the-holidaze"
           }
+        },
+        "90715b40-b539-480d-8dc3-ec7c80acd750": {
+          "type": "collection",
+          "settings": {
+            "collection": "musical-programs"
+          }
         }
       },
       "block_order": [
         "collection-0",
-        "90715b40-b539-480d-8dc3-ec7c80acd750",
-        "collection-1"
+        "collection-1",
+        "90715b40-b539-480d-8dc3-ec7c80acd750"
       ],
       "settings": {
         "heading": "Shop By Collection",
