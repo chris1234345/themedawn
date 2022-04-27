@@ -113,23 +113,23 @@
             "collection": "musical-t-shirts"
           }
         },
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "collection": "musical-cds"
-          }
-        },
         "90715b40-b539-480d-8dc3-ec7c80acd750": {
           "type": "collection",
           "settings": {
             "collection": "musical-programs"
           }
+        },
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "for-the-holidaze"
+          }
         }
       },
       "block_order": [
         "collection-0",
-        "collection-1",
-        "90715b40-b539-480d-8dc3-ec7c80acd750"
+        "90715b40-b539-480d-8dc3-ec7c80acd750",
+        "collection-1"
       ],
       "settings": {
         "heading": "Shop By Collection",
