@@ -188,6 +188,7 @@
       "blocks": {
         "16515169967316eeda-0": {
           "type": "video",
+          "disabled": true,
           "settings": {
             "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
             "description": "Describe the video",
@@ -196,6 +197,7 @@
         },
         "16515169967316eeda-1": {
           "type": "product",
+          "disabled": true,
           "settings": {
             "product": "",
             "second_image": false
@@ -204,7 +206,7 @@
         "16515169967316eeda-2": {
           "type": "collection",
           "settings": {
-            "collection": ""
+            "collection": "musical-t-shirts"
           }
         }
       },
