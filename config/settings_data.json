@@ -54,12 +54,12 @@
         "settings": {
           "color_scheme": "accent-2",
           "logo": "shopify:\/\/shop_images\/chris_img.png",
-          "logo_width": 90,
+          "logo_width": 80,
           "logo_position": "middle-left",
           "menu": "main-menu",
           "show_line_separator": false,
           "enable_sticky_header": false,
-          "margin_bottom": 0
+          "margin_bottom": 100
         }
       },
       "footer": {
