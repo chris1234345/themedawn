@@ -134,9 +134,87 @@
         "90715b40-b539-480d-8dc3-ec7c80acd750"
       ],
       "settings": {
-        "heading": "Shop By Collection",
+        "heading": "Musical Programs",
         "desktop_layout": "left",
         "mobile_layout": "column",
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "165151700894ec1f9f": {
+      "type": "collage",
+      "blocks": {
+        "1651517008f158fa65-0": {
+          "type": "video",
+          "settings": {
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "description": "Describe the video",
+            "image_padding": false
+          }
+        },
+        "1651517008f158fa65-1": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "second_image": false
+          }
+        },
+        "1651517008f158fa65-2": {
+          "type": "collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "1651517008f158fa65-0",
+        "1651517008f158fa65-1",
+        "1651517008f158fa65-2"
+      ],
+      "settings": {
+        "heading": "Multimedia collage",
+        "desktop_layout": "left",
+        "mobile_layout": "collage",
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "16515169977f15fabd": {
+      "type": "collage",
+      "blocks": {
+        "16515169967316eeda-0": {
+          "type": "video",
+          "settings": {
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "description": "Describe the video",
+            "image_padding": false
+          }
+        },
+        "16515169967316eeda-1": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "second_image": false
+          }
+        },
+        "16515169967316eeda-2": {
+          "type": "collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "16515169967316eeda-0",
+        "16515169967316eeda-1",
+        "16515169967316eeda-2"
+      ],
+      "settings": {
+        "heading": "Multimedia collage",
+        "desktop_layout": "left",
+        "mobile_layout": "collage",
         "color_scheme": "background-1",
         "padding_top": 36,
         "padding_bottom": 36
@@ -385,6 +463,8 @@
     "rich_text",
     "featured_collection",
     "collage",
+    "165151700894ec1f9f",
+    "16515169977f15fabd",
     "16458310587c9ad7d4",
     "1645545289986c1ba2",
     "video",
