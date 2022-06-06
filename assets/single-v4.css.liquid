@@ -493,10 +493,13 @@ a {
     display: inline-flex;
     flex-direction: column;
     justify-content: space-between;
+    border: 1px solid lightgray;
+    border: 1px solid rgba(var(--color-foreground), 0.08);
+    border-radius: 5px;
+    overflow: hidden;
 }
 .single-key-image {
     flex-grow: 1;
-    margin-bottom: .5em;
 }
 .single-key-image>img {
     height: 100%;
@@ -508,6 +511,10 @@ a {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    padding: .5em;
+    line-height: 1;
+    border-top: 1px solid lightgray;
+    border-top: 1px solid rgba(var(--color-foreground), 0.08);
 }
 @media screen and (max-width: 990px) {
     .single-card-key {
@@ -520,6 +527,9 @@ a {
 @media screen and (max-width: 750px) {
     .single-card-key {
         width: calc(50% - .5em);
+    }
+    .single-key-image>img {
+        height: auto;
     }
 }
 /** Animations **/
