@@ -71,7 +71,8 @@
     margin-top: .75em;
   }
 
-  .divider, .remaining {
+  .divider,
+  .remaining {
     opacity: .5;
     font-size: .75em
   }
@@ -92,7 +93,7 @@
     cursor: pointer;
   }
 
-  .player-controls .prev, 
+  .player-controls .prev,
   .player-controls .next,
   .single-track-add-to-cart {
     cursor: pointer;
@@ -122,6 +123,17 @@
       width: 100%;
     }
 
+    .track-details,
+    .track-purchase {
+      flex-basis: 30%;
+    }
+
+    .player-controls {
+      flex-grow: 1;
+      justify-content: center;
+      gap: .5em;
+    }
+
     .thumbnail img {
       height: 40px;
       width: 40px;
@@ -134,7 +146,7 @@
   <div class="col col-1_4"
        id="main_info">
     <div class="thumbnail">
-      <img src="{{ product.featured_image.src | img_url: '120x120' }}"/>
+      <img src="{{ product.featured_image.src | img_url: '120x120' }}" />
     </div>
     <div class="track-info">
       <span class="track-title">Track Title</span>
@@ -154,7 +166,8 @@
         <span class="divider">/ </span>
         <span class="remaining">00:00</span>
       </div>
-      <div class="track-meta" style="display:none;">
+      <div class="track-meta"
+           style="display:none;">
         <span class="track-tuning">C#</span>
         <span style="opacity: .25;">•</span>
         <span class="track-bpm">126bpm</span>

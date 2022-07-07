@@ -25,7 +25,7 @@ SOFTWARE.
 {% assign trackReleaseDate = trackReleaseDateFormatted | date: "%s" | plus: 0 %}
 {% capture trackOnSale %}{% if trackReleaseDate <= now %}true{% endif %}{% endcapture %}
 {% capture previewAvailable %}{% if track.metafields.track.preview == "true" %}true{% endif %}{% endcapture %}
-{% assign previewLink = track.metafields.track.preview_link | default: 'https://cdn.shopify.com/s/files/1/0587/4565/1358/files/ojio_-_ojio_-_01_time_is_a_tree.wav' %}
+{% assign previewLink = track.metafields.track.preview_link %}
 {% capture albumOnly %}{% if track.metafields.track.album_only == "true" %}true{% endif %}{% endcapture %}
 {% capture previewClickEvent %}{% if trackOnSale == "true" and previewAvailable == "true" %}onclick="togglePlayingTrack('{{ track.id }}', '{{ previewLink }}')"{% endif %}{% endcapture %}
 {% capture trackTime %}{% if track.metafields.track.track_time != '' %}<span>{{track.metafields.track.track_time}}</span>{% endif %}{% endcapture %}
