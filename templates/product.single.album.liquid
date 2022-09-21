@@ -1,28 +1,29 @@
 {% comment %}
-  <!--
-  Copyright (c) 2021 Single, LLC - ALL RIGHTS RESERVED
+<!--
+Copyright (c) 2022 Single Media, Inc - ALL RIGHTS RESERVED
 
-  NOTICE:  All information contained herein is, and remains the property of Single, LLC
-  and its suppliers, if any. The intellectual and technical concepts contained herein are
-  proprietary to Single, LLC and its suppliers and may be covered by U.S. and Foreign Patents,
-  patents in process, and are protected by trade secret or copyright law. Dissemination of this
-  information or reproduction of this material is strictly forbidden unless prior
-  written permission is obtained from Single, LLC.
+NOTICE:  All information contained herein is, and remains the property of Single Media, Inc
+and its suppliers, if any. The intellectual and technical concepts contained herein are
+proprietary to Single Media, Inc and its suppliers and may be covered by U.S. and Foreign Patents,
+patents in process, and are protected by trade secret or copyright law. Dissemination of this
+information or reproduction of this material is strictly forbidden unless prior
+written permission is obtained from Single Media, Inc.
 
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  SOFTWARE.
-  -->
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
 {% endcomment %}
 
 {% comment %}
-  <!-- Single Default Styles - Can be edited in assets/single-v2.scss.liquid -->
+<!-- Single App Styles -->
 {% endcomment %}
-{{ 'single-v4.css' | asset_url | stylesheet_tag }}
+{{ 'single-base.css' | asset_url | stylesheet_tag }}
+{{ 'single-music.css' | asset_url | stylesheet_tag }}
 
 {% comment %}
   <!-- jQuery -->
@@ -44,7 +45,7 @@
 {%- endcapture %}
 
 <div
-  class='single-grid {{ theme.name | handleize }}'
+  class='single-music-product'
   itemscope
   itemtype='http://schema.org/Product'
 >
@@ -56,12 +57,11 @@
     <meta property='og:image' content='{{ product.featured_image.src | img_url: 'grande' }}'>
     <meta property='og:url' content='{{ shop.url }}{{ product.url }}'>
     <!-- Left Column -->
-    <div class='single-col single-col-l single-col-4'>
+    <div class='single-col col-2_4'>
       <div class='single-album-art'>
         <img
           src='{{ product.featured_image.src | img_url: 'grande' }}'
-          alt='{{ featured_img_alt }}'
-        >
+          alt='{{ featured_img_alt }}'>
       </div>
       {% if product.metafields.album.track_count > 1 %}
         {% unless product.metafields.album.confidential_release_date == "true" %}
@@ -90,7 +90,7 @@
     </div>
     <!-- End Left Column -->
     <!-- Right Column -->
-    <div class='single-col single-col-r single-col-8'>
+    <div class='single-col col-2_4'>
       <!-- Begin Single Header -->
       <div class='single-album-header'>
         <h1
@@ -227,7 +227,7 @@
         >
           {% for track in products %}
             {% if track.type == 'Digital Track' %}
-              {% include 'single-track' with track %}
+              {% include 'single-music-track' with track %}
             {% endif %}
           {% endfor %}
         </div>
@@ -289,7 +289,7 @@
 {% endfor %}
 
 {% if enablePlayer == "true" %}
-  {% include 'single-footer-player' %}
+  {% include 'single-music-player' %}
   <script src='https://unpkg.com/wavesurfer.js'></script>
   <script>
     var singleAlbumPlayer = {
@@ -525,4 +525,4 @@
   </script>
 {% endif %}
 
-{% include 'single-ajaxify-album' %}
+{% include 'single-base-ajaxify' %}
