@@ -1,0 +1,107 @@
+.video-collection-title {
+    margin-left: 5rem;
+    margin-top: 0;
+}
+
+.single-video-title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.single-video-title, .single-video-description {
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.single-card-row {
+    overflow-x: auto;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding-left: 5rem;
+    padding-top: 5px;
+    padding-bottom: 2em;
+}
+
+.single-card-row::-webkit-scrollbar {
+    display: none;
+}
+
+.single-card-video {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 20%;
+    margin-right: 1em;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    color: inherit;
+}
+
+.single-card-video:last-of-type {
+    margin-right: 60px;
+}
+
+.single-card-video p {
+    margin-bottom: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.single-card-image-wide {
+    aspect-ratio: 16 / 9;
+    box-shadow: 0 1px 1px hsl(0deg 0% 0% / 8%), 0 2px 2px hsl(0deg 0% 0% / 8%),
+    0 4px 4px hsl(0deg 0% 0% / 8%), 0 8px 8px hsl(0deg 0% 0% / 8%), 0 16px 16px hsl(0deg 0% 0% / 8%);
+    background-size: cover;
+    width: 100%;
+    border-radius: 8px;
+    background-position: center;
+    overflow: hidden;
+    transition: all linear .1s;
+    position: relative;
+}
+
+.single-card-video:hover .single-card-image-wide {
+    transform: scale(1.025);
+    transition: all linear .1s;
+}
+
+.single-video-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 75%;
+    font-weight: 600;
+    letter-spacing: 0;
+    padding: .5em;
+    background-color: white;
+    border-bottom-left-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: .25em;
+    line-height: 1;
+}
+
+/*Tablet*/
+@media screen and (max-width: 1400px) {
+    .single-card-video {
+        width: 27.5%;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 750px) {
+    .single-card-row {
+        padding-left: 1.5rem;
+    }
+
+    .video-collection-title {
+        margin-left: 1.5rem;
+    }
+
+    .single-card-video {
+        width: 70%;
+    }
+}

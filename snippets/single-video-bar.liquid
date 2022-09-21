@@ -1,0 +1,8 @@
+<section class="single-content-section">
+    <h2 class="title h2 video-collection-title">{{ section_title }}</h2>
+    <div class="single-card-row">
+        {% for video_input in video_ids %}
+            {% render 'single-video-card', video_input: video_input, show_title: show_title, show_date: show_date, show_badge: show_badge, badge_text: badge_text %}
+        {% endfor %}
+    </div>
+</section>
