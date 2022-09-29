@@ -30,7 +30,7 @@ SOFTWARE.
              src="{{ product.featured_image | img_url: '640x640' }}"
              alt="{{ product.featured_image.alt }}" />
       </div>
-      <h5 class="single-collection-product-title card__heading h5">{{ product.title }}</h5>
+      <h3 class="single-collection-product-title card__heading h5">{{ product.title }}</h4>
       <p class="single-collection-product-price"
          id="single-product-price-{{product.id}}">{{ product.variants.first.price | money }}</p>
     </a>
@@ -39,10 +39,13 @@ SOFTWARE.
           method="post"
           enctype="multipart/form-data"
           id="product_form_{{product.id}}">
+      <input type="hidden"
+             name="properties[__livestream_id__{{ video_id }}]"
+             value="" />
       {% if product.variants.size > 1 %}
-      <div class="select single-variant-select-wrap">
+      <div class="select single-select-wrap single-variant-select">
         <select name="id"
-                class="single-variant-select select__select"
+                class="single-select select__select"
                 id="single-variant-select-{{product.id}}"
                 onchange="setPrice(this.options[this.selectedIndex]);">
           {% for variant in product.variants %}
@@ -58,13 +61,38 @@ SOFTWARE.
       {% else %}
       <input type="hidden"
              name="id"
+             id="single-variant-select-{{product.id}}"
              value="{{ product.variants.first.id }}" />
+      {% endif %}
+      {% if product.selling_plan_groups %}
+        <input type="hidden" id="selling-plan-{{ product.id }}" name="selling_plan" />
+        <script type="text/javascript">
+          const product{{ product.id }} = {{ product | json }};
+          const variantSelect{{ product.id }} = document.getElementById('single-variant-select-{{ product.id }}');
+          const spSelect{{ product.id }} = document.getElementById('selling-plan-{{ product.id }}');
+          variantSelect{{ product.id }}.addEventListener('change', populateSellingPlan{{ product.id }});
+          $(document).ready(populateSellingPlan{{ product.id }});
+
+          function populateSellingPlan{{ product.id }}() {
+            const variant = product{{ product.id }}.variants.find(v => v.id.toString() === variantSelect{{ product.id }}.value);
+            if (!!variant && !!variant.selling_plan_allocations && variant.selling_plan_allocations.length > 0) {
+              spSelect{{ product.id }}.value = variant.selling_plan_allocations[0].selling_plan_id;
+            }
+          }
+
+          /* Update Variant Price */
+          setPrice = function (selectedItem) {
+            const price = selectedItem.attributes['data-price'].value;
+            const productId = selectedItem.attributes['data-product-id'].value
+            document.getElementById("single-product-price-" + productId).innerHTML = price;
+          };
+        </script>
       {% endif %}
       <input type="submit"
              name="add"
              id="add"
              value="Add to Cart"
-             class="single-collection-add-to-cart button button-primary btn btn-primary">
+             class="single-collection-add-to-cart button">
     </form>
   </div>
   {%- endfor -%}

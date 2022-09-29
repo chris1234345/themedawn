@@ -128,7 +128,7 @@ SOFTWARE.
       <!-- Promoted Products -->
     {% endcomment %}
     {% if collections[collection_handle].products %}
-      {% include 'single-video-promoted-products' with collection_handle %}
+      {% include 'single-video-promoted-products' with collection_handle, livestream_id as video_id %}
     {% endif %}
     {% assign livestream = true %}
     {% include 'single-base-ajaxify' with livestream, livestream_id, single_host %}

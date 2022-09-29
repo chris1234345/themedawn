@@ -45,8 +45,8 @@ SOFTWARE.
               id="product_form_{{product.id}}">
           {% if product.variants.size > 1 %}
           <select name="id"
-                  class="single-variant-select"
-                  id="single-variant-select-{{product.id}}"
+                  class="single-select"
+                  id="single-select-{{product.id}}"
                   onchange="setPrice(this.options[this.selectedIndex]);">
             {% for variant in product.variants %}
               {% if variant.available == true %}
