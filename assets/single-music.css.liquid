@@ -198,7 +198,6 @@ SOFTWARE.
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1em;
     line-height: 1;
     font-size: 16px;
     gap: 1em;
@@ -286,11 +285,6 @@ SOFTWARE.
     cursor: pointer;
   }
 
-
-@media screen and (max-width: 990px) { 
-  
-}
-
 @media screen and (max-width: 750px) {
     .single-track-time, 
     .single-album-release-date,
@@ -304,6 +298,11 @@ SOFTWARE.
 
     .single-footer-player {
       flex-direction: column;
+      gap: 0;
+    }
+
+    .single-footer-player .single-col {
+      padding: 1em !important;
     }
 
     #main_info {
