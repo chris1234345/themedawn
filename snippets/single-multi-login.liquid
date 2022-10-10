@@ -1,0 +1,120 @@
+<style>
+    .login-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login-container.has-wallet {
+        width: 75%;
+    }
+
+    .login-separator {
+        flex: 0 4;
+        padding: 0 25px;
+    }
+
+    .login-separator::before, .login-separator::after {
+        content: '';
+        width: 1px;
+        background: #ccc;
+        height: 100px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .login-option {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 100%;
+        flex: 1;
+        padding: 0 25px;
+    }
+
+    #customer_login .email, #form-recover .email, #customer_login .password {
+        margin-bottom: 10px;
+    }
+
+    #customer_login .email input, #customer_login .password input, #form-recover .email input {
+        width: 100%;
+        border: 1px solid black;
+        padding: 8px;
+        box-shadow: none;
+    }
+
+    #customer_login .submit .btn, #form-recover .submit .btn {
+        width: 100%;
+    }
+
+    .login-container .recover-links {
+        margin-top: 10px;
+    }
+
+    .login-container .recover-links a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    @media screen and (max-width: 992px) {
+        .login-container {
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .login-container {
+            flex-direction: column;
+        }
+
+        .login-option {
+            width: 100%;
+        }
+
+        .login-option .single-gate {
+            margin-top: 0;
+        }
+
+        .login-separator {
+            width: 100%;
+            margin: 25px 0;
+            position: relative;
+            text-align: center;
+        }
+
+        .login-separator::before {
+            position: absolute;
+            width: 38%;
+            top: 51%;
+            overflow: hidden;
+            height: 1px;
+        }
+
+        .login-separator::after {
+            position: absolute;
+            width: 38%;
+            top: 51%;
+            right: 25px;
+            overflow: hidden;
+            height: 1px;
+        }
+    }
+</style>
+
+<div class='login-container'>
+  {% for login_type in login_types %}
+    {% if forloop.first != true %}
+      <div class='login-separator'>OR</div>
+    {% endif %}
+    <div class='login-option'>
+      {% if login_type == 'CUSTOMER' %}
+        {% capture single-customer-login %}{% section 'single-base-login' %}{% endcapture %}
+        {{ single-customer-login | replace: 'PAGE_URL', page_url }}
+      {% elsif login_type == 'WALLET' %}
+        {% section 'single-wallet-login' %}
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
