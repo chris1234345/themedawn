@@ -1,0 +1,43 @@
+<style>
+    .single-gate {
+        margin: 4em 0;
+        text-align: center;
+        margin-bottom: 4em;
+    }
+
+    .button {
+        margin: 0 auto;
+    }
+</style>
+
+<!-- Anonymous -->
+<section class="single-gate single-gate-login" hidden>
+  <h2>{{ 'single.login.title' | t }}</h2>
+  <p>{{ 'single.login.subTitle' | t }}</p>
+  <button class="single-login-button btn button">{{ 'single.login.connect_wallet' | t }}</button>
+</section>
+
+<!-- Waiting For Approval -->
+<section class="single-gate single-gate-waiting" hidden>
+  <h2>{{ 'single.login.approve' | t }}</h2>
+  <p>{{ 'single.login.subApprove' | t }}</p>
+</section>
+
+
+{% schema %}
+{
+  "locales": {
+    "en": {
+      "single": {
+        "login":{
+          "title": "Connect wallet to continue...",
+          "subTitle": "The page you are trying to view can be unlocked with a permitted NFT.",
+          "approve": "Please Approve Signature Request",
+          "subApprove": "You will be redirected after wallet connection is approved.",
+          "connect_wallet": "Connect Wallet"
+        }
+      }
+    }
+  }
+}
+{% endschema %}

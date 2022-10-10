@@ -1,0 +1,156 @@
+{% comment %}
+<!--
+Copyright (c) 2022 Single, LLC - ALL RIGHTS RESERVED
+
+NOTICE:  All information contained herein is, and remains the property of Single, LLC
+and its suppliers, if any. The intellectual and technical concepts contained herein are
+proprietary to Single, LLC and its suppliers and may be covered by U.S. and Foreign Patents,
+patents in process, and are protected by trade secret or copyright law. Dissemination of this
+information or reproduction of this material is strictly forbidden unless prior
+written permission is obtained from Single, LLC.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+{% endcomment %}
+
+{% comment %}
+<!-- Single App Default Styles -->
+{% endcomment %}
+{{ 'single-base.css' | asset_url | stylesheet_tag }}
+{{ 'single-gated-content.css' | asset_url | stylesheet_tag }}
+
+{{ '//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js' | script_tag }}
+
+<div class="single-grid" style="margin-bottom: 5em;">
+    <div class="single-grid-item">
+        <div class="single-col col-4_4">
+            <div class="single-header-bar {% unless viewable_content_key_names.size > 0 or content_query %}single-empty-header-bar{% endunless %}">
+                <!-- Search Bar -->
+                {% if viewable_content_key_names.size > 0 or content_query %}
+                    <div class="single-search-bar">
+                        <input id="contentQuery" value="{{ content_query }}" placeholder="Search by Title"/>
+                        <div class="single-search-actions">
+                            <div id="contentQuerySearch" class="single-icon single-submit">{% render 'single-icon-search' %}</div>
+                            <div id="contentQueryClear" class="single-icon single-submit">{% render 'single-icon-close' %}</div>
+                        </div>
+                    </div>
+                {% endif %}
+                <!-- Key Dropdown -->
+                {% if viewable_content_key_names.size > 1 %}
+                    <div class="single-dropdown single-key-dropdown-wrap" tabindex="-1">
+                        <div class="single-key-dropdown single-dropdown-button">
+                            <div class="single-dropdown-selected">
+                                {% for viewable_content_key in viewable_content_key_names %}
+                                    {% assign viewable_content_key_parts = viewable_content_key | split: "|" %}
+                                    <div id="single-dropdown-{{ viewable_content_key_parts[1] }}" class="single-dropdown-selection{% unless forloop.first %} hidden{% endunless %}">
+                                        <div class="single-dropdown-img"><img src="{{ viewable_content_key_parts[2] }}"/></div>
+                                        <span>{{ viewable_content_key_parts[0] }}</span>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            {% render 'single-icon-caret' %}
+                        </div>
+                        <div class="single-dropdown-content">
+                            {% for viewable_content_key in viewable_content_key_names %}
+                                {% assign viewable_content_key_parts = viewable_content_key | split: "|" %}
+                                <div class="single-dropdown-content-row" onclick="updateKeySelection('{{ viewable_content_key_parts[1] }}');">
+                                    <div class="single-dropdown-img"><img src="{{ viewable_content_key_parts[2] }}"/></div>
+                                    <span>{{ viewable_content_key_parts[0] }}</span>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% else %}
+                    {% assign viewable_content_key_parts = viewable_content_key_names[0] | split: "|" %}
+                    {% if viewable_content_key_parts[2] %}
+                        <div class="single-dropdown-selection solo-selection">
+                            <div class="single-dropdown-img"><img src="{{ viewable_content_key_parts[2] }}"/></div>
+                            <span>{{ viewable_content_key_parts[0] }}</span>
+                        </div>
+                    {% endif %}
+                {% endif %}
+                <!-- Account Options Bar -->
+                <div class="single-dropdown single-options-dropdown" tabindex="-1">
+                    <div class="single-dropdown-button">
+                        {% render 'single-icon-cog' %}
+                    </div>
+                    <div class="single-dropdown-content">
+                        {% if customer %}
+                            <div class="single-dropdown-content-row" onclick="location.href='/pages/membership'">
+                                Manage Account
+                            </div>
+                            <div class="single-dropdown-content-row" onclick="location.href='/account/logout'">
+                                Log Out
+                            </div>
+                        {% endif %}
+                        <div class="single-dropdown-content-row single-gate-logout hidden" hidden>
+                            <div class="single-logout-button">Disconnect Wallet</div>
+                        </div>
+                        <div class="single-dropdown-content-row single-gate-login">
+                            {% render 'single-login-buttons', login_types: login_types, page_url: page_url %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if viewable_content_key_names.size > 0 %}
+        <!-- Key level div -->
+        {% for viewable_content_key_row in viewable_content_key_rows %}
+            {% assign key_row_parts = viewable_content_key_row | split: ",," %}
+            <div id="{{ key_row_parts[0] }}" class="key_section{% unless forloop.first %} hidden{% endunless %}">
+                {% for key_row_part in key_row_parts offset: 1 %}
+                    {% assign row_parts = key_row_part | split: "," %}
+                    <!-- Row level div -->
+                    {% assign row_header = row_parts[0] | split: "|" %}
+                    <section class="single-grid-item {{ row_header[1] | handleize }}">
+                        <div class="single-col col-4_4">
+                            <h2 style="margin-bottom: 0;">{{ row_header[1] }}</h2>
+                        </div>
+                        {% if row_header[0] == 'PRODUCT' %}
+                            {% for product_input in row_parts offset: 1 %}
+                                <div class="single-col col-2_4">
+                                    {% render 'single-product-card', product_input: product_input %}
+                                </div>
+                            {% endfor %}
+                        {% elsif row_header[0] == 'VIDEO' %}
+                            {% for video_input in row_parts offset: 1 %}
+                                <div class="single-col col-1_4">
+                                    {% render 'single-video-card', video_input: video_input, show_title: true, show_date: true, show_badge: false %}
+                                </div>
+                            {% endfor %}
+                        {% elsif row_header[0] == 'PAGE' %}
+                            {% for page_input in row_parts offset: 1 %}
+                                <div class="single-col col-2_4">
+                                    {% render 'single-page-card', page_input: page_input %}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </section>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    {% else %}
+        <div style="text-align:center; margin: 5rem auto;">
+            <h2>No Exclusive Items at this time.</h2>
+        </div>
+    {% endif %}
+</div>
+
+{% if viewable_content_key_names.size > 1 %}
+    <script>
+        function updateKeySelection(id) {
+            $('.key_section').addClass('hidden');
+            $('.single-dropdown-selection').addClass('hidden');
+            $('#' + id).removeClass('hidden');
+            $('#single-dropdown-' + id).removeClass('hidden');
+            document.activeElement.blur();
+        }
+    </script>
+{% endif %}
