@@ -1,0 +1,157 @@
+{% comment %}
+<!--
+Copyright (c) 2022 Single, LLC - ALL RIGHTS RESERVED
+
+NOTICE:  All information contained herein is, and remains the property of Single, LLC
+and its suppliers, if any. The intellectual and technical concepts contained herein are
+proprietary to Single, LLC and its suppliers and may be covered by U.S. and Foreign Patents,
+patents in process, and are protected by trade secret or copyright law. Dissemination of this
+information or reproduction of this material is strictly forbidden unless prior
+written permission is obtained from Single, LLC.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+{% endcomment %}
+
+{% comment %}
+<!-- Single Default Styles - Can be edited in assets/single-v3.scss.liquid -->
+{% endcomment %}
+{{ 'single-base.css' | asset_url | stylesheet_tag }}
+{{ 'single-gated-content.css' | asset_url | stylesheet_tag }}
+
+{% comment %}
+<!-- jQuery -->
+{% endcomment %}
+{{ '//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js' | script_tag }}
+
+{% assign product = shop.metafields.single_gated_content[gated_product_id].value %}
+{% assign featured_image = product.images.first.src | image_url: 'grande' %}
+
+<div class="single-grid single-product" itemscope itemtype="http://schema.org/Product">
+    <div class="single-grid-item align-right">
+        <div class="single-gate-logout hidden" hidden>
+            <button class="btn button btn-primary single-logout-button">Disconnect Wallet</button>
+        </div>
+    </div>
+    <div class="single-grid-item">
+
+        <!-- Product Metatags -->
+        <meta itemprop="url" content="{{ shop.url }}{{ product.url }}"/>
+        <meta itemprop="image" content="{{ featured_image }}"/>
+        <meta property="og:title" content="{{ product.title }}"/>
+        <meta property="og:image" content="{{ featured_image }}"/>
+        <meta property="og:url" content="{{ shop.url }}{{ product.url }}"/>
+
+        <!-- Left Column-->
+        <div class="single-col col-2_4">
+            <div class="single-product-image">
+                <img src="{{ featured_image }}" alt="{{ featured_img_alt }}"/>
+            </div>
+        </div>
+        <!--End Left Column-->
+        
+        <!--Right Column-->
+        <div class="single-col col-2_4">
+            <!-- Begin Single Header -->
+            <div class="single-product-header">
+                <h1 class="single-product-title" itemprop="name">
+                    <span>{{ product.title }}</span>
+                </h1>
+                <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+                {% render 'single-nft-progress-bar', product: product %}
+                <!-- Add to Cart -->
+                <single-product-form>
+                    {% if product.variants.size > 1 %}
+                        <div class="product-form__input">
+                            <div class="select single-select-wrap">
+                                <select name="id" class="select__select single-select">
+                                    {% for variant in product.variants %}
+                                        {% if variant.available %}
+                                            <option value="{{variant.id}}"> {{ variant.title }} - {{ variant.price | money }}</option>
+                                        {% else %}
+                                            <option disabled="disabled"> {{ variant.title }} - Sold out</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                                {% render 'single-icon-caret' %}
+                            </div>
+                        </div>
+                    {% else %}
+                        {% assign variant = product.variants.first %}
+                        <div class="single-product-variant-title">{% unless variant.title == "Default Title" %}{{ variant.title }} - {% endunless %}{{ variant.price | money }}</div>
+                        <input name="id" value="{{ variant.id }}" type="hidden" />
+                    {% endif %}
+                    {% if product.available != true %}
+                        <div class="single-product-add-to-cart-btns">
+                            <button class="btn button button-primary" disabled>Sold Out</button>
+                        </div>
+                    {% elsif access_response == "REQUEST_LOGIN" %}
+                        <div class="single-product-add-to-cart-btns">
+                            {% render 'single-login-buttons', login_types: login_types %}
+                        </div>
+                    {% elsif access_response == "ACCESS_DENIED" %}
+                        <div class="single-product-add-to-cart-btns">
+                            <button class="btn button button-primary" disabled>You do not have access to this product. You may purchase access below.</button>
+                        </div>
+                    {% elsif product.available %}
+                        <div class="single-product-add-to-cart-btns">
+                            <button type="submit" name="add" id="AddToCart" class="btn button button-primary">
+                                <span id="AddToCartText">Add to Cart</span>
+                            </button>
+                        </div>
+                        <div class="single-product-add-to-cart-btns">
+                            <button type="submit" name="add" id="BuyNow" class="btn button button-primary">
+                                <span id="BuyNowText">Buy it now</span>
+                            </button>
+                        </div>
+                    {% endif %}
+                </single-product-form>
+                <p class="single-product-description">{{ product.description }}</p>
+            </div>
+            <!-- End Single Header -->
+        </div>
+        <!-- End Right Column -->
+    </div>
+    <!-- End Inner Wrap -->
+</div>
+<!-- End Product Wrap -->
+
+{% if product_ids.size > 0 %}
+    <div class="single-grid">
+        <div class="single-grid-item">
+            <div class="single-col col-4_4">
+                <h2>Grants access to the following:</h2>
+            </div>
+            <div class="single-col col-2_4">
+                {% for product_input in product_ids %}
+                    {% render 'single-product-card', product_input: product_input %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% if key_product_ids.size > 0 or key_product_listings.size > 0 %}
+    <div class="single-grid {{ theme.name | handleize }}">
+      <div class="single-grid-item">
+        <div class="single-col col-4_4">
+          <h2>Need Access?</h2>
+        </div>
+        <div class="single-col col-2_4">
+        {% for key_product in key_product_ids %}
+            {% assign product_parts = key_product | split: "|" %}
+            {% render 'single-product-card', product_input: product_parts[0], required_amount: product_parts[1] %}
+        {% endfor %}
+        {% for product_listing in key_product_listings %}
+            {% render 'single-listing-card', product_listing: product_listing %}
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+{% endif %}
