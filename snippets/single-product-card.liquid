@@ -14,7 +14,7 @@
             <p class="single-card-description">{{ product.description }}</p>
             {% if product.available %}
                 <div class="card__badge">
-              <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">
+              <span class="badge badge--bottom-left">
                 {% if product.price == 0 %}
                     FREE
                 {% elsif settings.currency_code_enabled %}
@@ -29,9 +29,9 @@
                     <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">{{ 'products.product.sold_out' | t }}</span>
                 </div>
             {% endif %}
-            {% if required_amount and required_amount != "0" %}
+            {% if required_amount and required_amount > "1" %}
                 <div class="card__badge">
-                    <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">{{ required_amount }} needed</span>
+                    <span class="badge badge--bottom-left">{{ required_amount }} Required</span>
                 </div>
             {% endif %}
         </div>

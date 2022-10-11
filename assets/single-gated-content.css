@@ -19,7 +19,7 @@ SOFTWARE.
 
 /*** Product & Membership Pages ***/
 .single-product {
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 
 .single-product-image img {
@@ -251,6 +251,7 @@ SOFTWARE.
 
 .single-card:hover {
   cursor: pointer;
+  background-color: rgba(var(--color-foreground), 0.025);
 }
 
 .single-card-image {
@@ -288,6 +289,7 @@ SOFTWARE.
 
 .card__badge {
   margin-bottom: 1em;
+  display: inline-block;
 }
 
 /* Exclusive Page Videos */

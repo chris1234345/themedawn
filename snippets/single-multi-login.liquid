@@ -1,9 +1,6 @@
 <style>
     .login-container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin: 0 auto;
+        padding: 0;
         align-items: center;
         justify-content: center;
     }
@@ -34,19 +31,10 @@
         padding: 0 25px;
     }
 
-    #customer_login .email, #form-recover .email, #customer_login .password {
-        margin-bottom: 10px;
-    }
-
-    #customer_login .email input, #customer_login .password input, #form-recover .email input {
-        width: 100%;
-        border: 1px solid black;
-        padding: 8px;
-        box-shadow: none;
-    }
-
-    #customer_login .submit .btn, #form-recover .submit .btn {
-        width: 100%;
+    #customer_login .email, 
+    #form-recover .email, 
+    #customer_login .password {
+        margin-bottom: 2rem;
     }
 
     .login-container .recover-links {
@@ -57,6 +45,11 @@
         text-decoration: none;
         color: inherit;
     }
+
+    .key-products {
+        margin-bottom: 4rem;
+        justify-content: center;
+    }    
 
     @media screen and (max-width: 992px) {
         .login-container {
@@ -103,7 +96,7 @@
     }
 </style>
 
-<div class='login-container'>
+<div class='single-grid-item login-container'>
   {% for login_type in login_types %}
     {% if forloop.first != true %}
       <div class='login-separator'>OR</div>
