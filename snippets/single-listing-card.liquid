@@ -17,7 +17,7 @@
         {% endfor %}
         {% if required_amount and required_amount != "0" %}
             <div class="card__badge">
-                <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">{{ required_amount }} needed</span>
+                <span class="badge badge--bottom-left">{{ required_amount }} Required</span>
             </div>
         {% endif %}
     </div>
