@@ -36,20 +36,6 @@ SOFTWARE.
     box-sizing: border-box;
     margin: 0 auto;
 }
-.single-login form label {
-    display: block;
-    text-align: left;
-    cursor: text;
-}
-.single-login form input {
-    width: 100%;
-    padding: 10px 18px;
-    margin-bottom: 10px;
-}
-.single-login form .btn {
-    display: block;
-    width: 100%;
-}
 .single-login .recover-links {
     margin-bottom: 3em;
 }
@@ -61,20 +47,20 @@ SOFTWARE.
 }
 </style>
 
-<section class="single-login">
+<section class="single-login customer">
   <div id="form-login" class="single-form">
     <h2 id="LoginHeading" class="text-center">{{ 'single.login.title' | t }}</h2>
     <p>{{ 'single.login.subtext' | t }}</p>
     {% form 'customer_login' %}
       {{ form_errors | default_errors }}
       <input type="hidden" name="return_to" value="PAGE_URL">
-      <div class="email">
+      <div class="email field">
+        <input type="email" name="customer[email]" placeholder="Email">
         <label for="email">{{ 'single.login.email' | t }}</label>
-        <input type="email" name="customer[email]">
       </div>
-      <div class="password">
+      <div class="password field">
+        <input type="password" name="customer[password]" placeholder="Password">
         <label for="password">{{ 'single.login.password' | t }}</label>
-        <input type="password" name="customer[password]">
       </div>
       <div class="submit">
         <input type="submit" value="{{ 'single.login.sign_in' | t }}" class="btn button">
@@ -94,9 +80,9 @@ SOFTWARE.
     {% form 'recover_customer_password' %}
       {{ form_errors | default_errors }}
       <input type="hidden" name="return_to" value="{{ page.url }}">
-      <div class="email">
+      <div class="email field">
+        <input type="email" name="email" placeholder="Email">
         <label for="email">{{ 'single.login.email' | t }}</label>
-        <input type="email" name="email">
       </div>
       <div class="submit">
         <input type="submit" value="{{ 'single.recover_password.submit' | t }}" class="btn button">
