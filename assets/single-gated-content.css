@@ -17,36 +17,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-/*** Product & Membership Pages ***/
-.single-product {
-  margin-top: 2rem;
-}
-
-.single-product-image img {
-  width: 100%;
-}
-
-.single-product-add-to-cart-btns {
-  margin: 2rem 0;
-}
-
-.single-product-add-to-cart-btns .btn {
-  width: 100%;
-}
-
-.single-login-container {
-  display: flex;
-  gap: 1em;
-}
-
-.single-login-option {
-  flex-grow: 1;
-}
-
-.single-customer-login-button {
-  width: 100%;
-}
-
 /*** Exclusives Page ***/
 
 /* Header Bar */
