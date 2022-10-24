@@ -1,0 +1,49 @@
+{% comment %}
+<!--
+Copyright (c) 2022 Single, LLC - ALL RIGHTS RESERVED
+
+NOTICE:  All information contained herein is, and remains the property of Single, LLC
+and its suppliers, if any. The intellectual and technical concepts contained herein are
+proprietary to Single, LLC and its suppliers and may be covered by U.S. and Foreign Patents,
+patents in process, and are protected by trade secret or copyright law. Dissemination of this
+information or reproduction of this material is strictly forbidden unless prior
+written permission is obtained from Single, LLC.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+{% endcomment %}
+
+{% comment %}
+<!-- Single App Default Styles -->
+{% endcomment %}
+{{ 'single-base.css' | asset_url | stylesheet_tag }}
+{{ 'single-video-bar.css' | asset_url | stylesheet_tag }}
+
+<style>
+    .single-card-video {
+        width: 100% !important;
+    }
+</style>
+
+<div class="single-grid" style="margin-bottom: 5em;">
+    <section class="single-grid-item">
+        <div class="single-col col-4_4">
+            <h2  class="title h2" style="margin-bottom: 0;">{{ section_title }}</h2>
+        </div>
+        {% if video_ids.size > 0 %}
+            {% for video_input in video_ids %}
+                <div class="single-col col-1_4">
+                    {% render 'single-video-card', video_input: video_input, show_title: show_title, show_date: show_date, show_badge: show_badge, badge_text: badge_text %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <h2 style="width:100%; text-align: center;">No videos available</h2>
+        {% endif %}
+    </section>
+</div>

@@ -26,7 +26,7 @@ SOFTWARE.
 {{ 'single-gated-content.css' | asset_url | stylesheet_tag }}
 
 <div class="single-grid" style="margin-bottom: 5em;">
-    {% render 'single-multi-login', login_types: login_types, page_url: page_url %}
+    {% render 'single-multi-login', login_details: login_types, page_url: page_url %}
 
     {% if user_keys %}
         <div class="single-grid-item">

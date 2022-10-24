@@ -4,7 +4,8 @@
   let internal_id = params.get("internal-id");
   let content_type = params.get("content-type");
   let collection_id = params.get("collection-id");
-  let list_entry_redirect = params.get("list-entry-redirect")
+  let page_type = params.get("page-type");
+  let list_entry_redirect = params.get("list-entry-redirect");
   if (!!content_id) {
     if (!!list_entry_redirect) {
       window.SINGLE_CONTENT_KEY = "list?keyId=" + content_id;
@@ -17,6 +18,8 @@
     }
   } else if (!!collection_id) {
     window.SINGLE_CONTENT_KEY = "list?keyId=" + collection_id;
+  } else if (!!page_type) {
+    window.SINGLE_CONTENT_KEY = page_type + "?" + params.toString();
   } else {
     window.SINGLE_CONTENT_KEY = "user-landing";
   }
