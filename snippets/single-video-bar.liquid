@@ -17,6 +17,11 @@
             <h2 style="width:100%; text-align: center;">No videos available</h2>
         {% endif %}
     </div>
+    {% if video_landing_url %}
+        <div style="width:100%; text-align: center;">
+            <button class="btn button" onclick="location.href='{{ video_landing_url }}'">View All</button>
+        </div>
+    {% endif %}
 </section>
 
 <script>
@@ -24,7 +29,7 @@
         let scriptUrl = "{{ 'single-video-bar.js' | asset_url }}";
         let videoBarScript = document.createElement('script');
         videoBarScript.setAttribute('src', scriptUrl);
-      videoBarScript.setAttribute('async', false);
+        videoBarScript.setAttribute('async', false);
         document.head.appendChild(videoBarScript);
         videoBarScript.addEventListener('load', () => new SingleVideoBarSlider({{ row_id | json }}));
     } else {

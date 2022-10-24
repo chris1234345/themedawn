@@ -29,10 +29,11 @@
         flex-basis: 100%;
         flex: 1;
         padding: 0 25px;
+        text-align: center
     }
 
-    #customer_login .email, 
-    #form-recover .email, 
+    #customer_login .email,
+    #form-recover .email,
     #customer_login .password {
         margin-bottom: 2rem;
     }
@@ -49,7 +50,11 @@
     .key-products {
         margin-bottom: 4rem;
         justify-content: center;
-    }    
+    }
+
+    .single-logout {
+        margin: 4em 0;
+    }
 
     @media screen and (max-width: 992px) {
         .login-container {
@@ -97,17 +102,36 @@
 </style>
 
 <div class='single-grid-item login-container'>
-  {% for login_type in login_types %}
-    {% if forloop.first != true %}
-      <div class='login-separator'>OR</div>
-    {% endif %}
-    <div class='login-option'>
-      {% if login_type == 'CUSTOMER' %}
-        {% capture single-customer-login %}{% section 'single-base-login' %}{% endcapture %}
-        {{ single-customer-login | replace: 'PAGE_URL', page_url }}
-      {% elsif login_type == 'WALLET' %}
-        {% section 'single-wallet-login' %}
-      {% endif %}
-    </div>
-  {% endfor %}
+    {% for login_detail in login_details %}
+        {% if forloop.first != true %}
+            <div class='login-separator'>OR</div>
+        {% endif %}
+        {% assign login_detail_parts = login_detail | split: '|' %}
+        <div class='login-option'>
+            {% if login_detail_parts[0] == 'CUSTOMER' %}
+                {% if login_detail_parts.size > 1 and login_detail_parts[1] == 'true' %}
+                    <section class="single-login customer single-logout">
+                        <h2>Logged In</h2>
+                        <p>You do not have access to this content.</p>
+                        <a href="/account/logout">
+                            <button class="btn button">Log Out</button>
+                        </a>
+                    </section>
+                {% else %}
+                    {% capture single-customer-login %}{% section 'single-base-login' %}{% endcapture %}
+                    {{ single-customer-login | replace: 'PAGE_URL', page_url }}
+                {% endif %}
+            {% elsif login_detail_parts[0] == 'WALLET' %}
+                {% if login_detail_parts.size > 1 and login_detail_parts[1] == 'true' %}
+                    <section class="single-gate single-gate-login single-logout">
+                        <h2>Wallet Connected</h2>
+                        <p>Permitted NFT not found.</p>
+                        <button class="single-logout-button btn button">Disconnect Wallet</button>
+                    </section>
+                {% else %}
+                    {% section 'single-wallet-login' %}
+                {% endif %}
+            {% endif %}
+        </div>
+    {% endfor %}
 </div>
