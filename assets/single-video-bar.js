@@ -53,14 +53,14 @@ class SingleVideoBarSlider {
   init() {
     this.chevLeft.style.height = `${this.cardImage.offsetHeight}px`;
     this.chevRight.style.height = `${this.cardImage.offsetHeight}px`;
-    this.cardsPerSlide = this.cardVideos[0].clientWidth * 4 + 16 < this.cardRow.clientWidth ? 4 : 3;
-    this.translateVal = this.cardVideos[0].clientWidth * this.cardsPerSlide + 16;
+    this.cardsPerSlide = Math.floor(this.cardRow.clientWidth / this.cardVideos[0].clientWidth);
+    this.translateVal = this.cardVideos[0].clientWidth * this.cardsPerSlide + (4 * this.cardsPerSlide);
     this.handleShowChev();
   }
 
   isMobile() {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent
+        navigator.userAgent
     ) || (navigator.userAgent.match(/Mac/) && navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
   }
 
