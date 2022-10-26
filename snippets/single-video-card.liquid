@@ -1,19 +1,25 @@
 {% assign video_pieces = video_input | split: '|' %}
 
-<div class="single-card-video"
+<div class="single-card-video single-accessibility" title="{{ video_pieces[0] }}"
      onclick="location.href='{{ video_pieces[3] }}';">
     <div class="single-card-image-wide" style="background-image: url({{ video_pieces[2] }})">
         {% if show_badge and video_pieces[4] == 'true' %}
             <div class="single-video-badge">{{ badge_text }}</div>
         {% endif %}
     </div>
-    {% if show_title or show_date %}
+    {% if show_title or show_artist or show_date %}
         <div class="single-video-info">
             {% if show_title %}
                 <h4 class="single-video-title">{{ video_pieces[0] }}</h4>
             {% endif %}
+            {% if show_artist %}
+                <h6 class="single-video-description">{{ video_pieces[5] }}</h6>
+            {% endif %}
             {% if show_date %}
                 <h6 class="single-video-description">{{ video_pieces[1] | date: "%b %e, %Y" }}</h6>
+            {% endif %}
+            {% if show_artist and video_pieces[5] == blank %}
+                <h6 class="single-video-description">&nbsp;</h6>
             {% endif %}
         </div>
     {% endif %}

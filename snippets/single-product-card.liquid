@@ -5,7 +5,8 @@
 {% endif %}
 
 {% if product %}
-    <div class="single-card single-card-large" onclick="location.href='{{ product.url }}';">
+    <div class="single-card single-card-large single-accessibility" title="{{ product.title }}"
+         onclick="location.href='{{ product.url }}';">
         <div class="single-card-image">
             {% render 'single-image', image: product.images.first %}
         </div>

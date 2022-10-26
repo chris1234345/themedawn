@@ -1,6 +1,6 @@
 {% assign page_pieces = page_input | split: '|' %}
 
-<div class="single-card single-card-small"
+<div class="single-card single-card-small single-accessibility" title="{{ page_pieces[0] }}"
      onclick="location.href='{{ page_pieces[1] }}';">
     {% if page_pieces.size > 2 %}
         <div class="single-col single-col-l col-1_4 single-card-image-wide">
