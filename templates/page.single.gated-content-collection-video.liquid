@@ -23,23 +23,46 @@ SOFTWARE.
 <!-- Single App Default Styles -->
 {% endcomment %}
 {{ 'single-base.css' | asset_url | stylesheet_tag }}
+{{ 'single-gated-content.css' | asset_url | stylesheet_tag }}
 {{ 'single-video-bar.css' | asset_url | stylesheet_tag }}
 
 <style>
     .single-card-video {
         width: 100% !important;
     }
+
+    .single-header-bar {
+        margin-top: 0;
+        padding-left: 0;
+        padding-right: 16px;
+        border: none;
+    }
 </style>
 
 <div class="single-grid" style="margin-bottom: 5em;">
     <section class="single-grid-item">
-        <div class="single-col col-4_4">
-            <h2  class="title h2" style="margin-bottom: 0;">{{ section_title }}</h2>
+        <div class="single-col col-1_1">
+            <h2 class="title {{ title_size }}" style="margin-bottom: 0;">{{ section_title }}</h2>
+            {% if section_description %}
+                <p class="video-collection-title" style="margin-left: 0;">{{ section_description }}</p>
+            {% endif %}
+        </div>
+        <div class="single-col col-1_1">
+            <div class="single-header-bar">
+                <!-- Search Bar -->
+                <div class="single-search-bar">
+                    <input id="contentQuery" value="{{ content_query }}" placeholder="Search by Title"/>
+                    <div class="single-search-actions">
+                        <div id="contentQuerySearch" class="single-icon single-submit">{% render 'single-icon-search' %}</div>
+                        <div id="contentQueryClear" class="single-icon single-submit">{% render 'single-icon-close' %}</div>
+                    </div>
+                </div>
+            </div>
         </div>
         {% if video_ids.size > 0 %}
             {% for video_input in video_ids %}
-                <div class="single-col col-1_4">
-                    {% render 'single-video-card', video_input: video_input, show_title: show_title, show_date: show_date, show_badge: show_badge, badge_text: badge_text %}
+                <div class="single-col col-1_{{ column_count }}">
+                    {% render 'single-video-card', video_input: video_input, show_title: show_title, show_date: show_date, show_artist: show_artist, show_badge: show_badge, badge_text: badge_text %}
                 </div>
             {% endfor %}
         {% else %}
