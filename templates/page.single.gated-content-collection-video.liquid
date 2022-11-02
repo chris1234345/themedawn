@@ -59,6 +59,11 @@ SOFTWARE.
                 </div>
             </div>
         </div>
+        <div class="single-col col-1_1 single-gate-loading" style="margin: 4em 0;" hidden>
+            <single-spinner></single-spinner>
+        </div>
+    </section>
+    <section class="single-grid-item single-hidden-while-loading">
         {% if video_ids.size > 0 %}
             {% for video_input in video_ids %}
                 <div class="single-col col-1_{{ column_count }}">
