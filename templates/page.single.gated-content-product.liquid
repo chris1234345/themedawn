@@ -33,6 +33,10 @@ SOFTWARE.
 {% assign product = shop.metafields.single_gated_content[gated_product_id].value %}
 {% assign featured_image = product.images.first.src | image_url: 'grande' %}
 
+<script>
+    window.SINGLE_PRODUCT_DATA = {{ product | json }};
+</script>
+
 <div class="single-grid single-product" itemscope itemtype="http://schema.org/Product">
     <div class="single-grid-item align-right">
         <div class="single-gate-logout hidden" hidden>
@@ -66,50 +70,54 @@ SOFTWARE.
                 <meta itemprop="priceCurrency" content="{{ shop.currency }}">
                 {% render 'single-nft-progress-bar', product: product %}
                 <!-- Add to Cart -->
-                <single-product-form>
-                    {% if product.variants.size > 1 %}
-                        <div class="product-form__input">
-                            <div class="select single-select-wrap">
-                                <select name="id" class="select__select single-select">
-                                    {% for variant in product.variants %}
-                                        {% if variant.available %}
-                                            <option value="{{variant.id}}"> {{ variant.title }} - {{ variant.price | money }}</option>
-                                        {% else %}
-                                            <option disabled="disabled"> {{ variant.title }} - Sold out</option>
-                                        {% endif %}
+              <single-product-form options="{{ product.options | map: 'name' | join: ',' }}">
+                  <h3 class="single-product-price">{{ product.variants[0].price | money_with_currency }}</h3>
+                  {% if product.variants.size > 1 %}
+                      <div class="single-product-options">
+                          {% for option in product.options %}
+                              {% assign option_loop = forloop %}
+                                <fieldset class="js product-form__input" id="fieldset-{{ option.name | handleize }}">
+                                      <legend class="form__label">{{ option.name }}</legend>
+                                      {% for value in option.values %}
+                                          <input class="single-product-option-input"
+                                                 type="radio"
+                                                 id="{{ product.id }}-{{ option_loop.index0 }}-{{ forloop.index0 }}"
+                                                 name="{{ option.name }}"
+                                                 value="{{ value }}"
+                                                 {% if forloop.first %}checked{% endif %}/>
+                                          <label class="single-product-option-label" for="{{ product.id }}-{{ option_loop.index0 }}-{{ forloop.index0 }}">{{ value }}</label>
                                     {% endfor %}
-                                </select>
-                                {% render 'single-icon-caret' %}
-                            </div>
-                        </div>
-                    {% else %}
-                        {% assign variant = product.variants.first %}
-                        <div class="single-product-variant-title">{% unless variant.title == "Default Title" %}{{ variant.title }} - {% endunless %}{{ variant.price | money }}</div>
-                        <input name="id" value="{{ variant.id }}" type="hidden" />
-                    {% endif %}
-                    {% if product.available != true %}
-                        <div class="single-product-add-to-cart-btns">
-                            <button class="btn button button-primary" disabled>Sold Out</button>
-                        </div>
-                    {% elsif access_response == "REQUEST_LOGIN" %}
-                        <div class="single-product-add-to-cart-btns">
-                            {% render 'single-login-buttons', login_types: login_types %}
-                        </div>
-                    {% elsif access_response == "ACCESS_DENIED" %}
-                        <div class="single-product-add-to-cart-btns">
-                            <button class="btn button button-primary" disabled>You do not have access to this product. You may purchase access below.</button>
-                        </div>
-                    {% elsif product.available %}
-                        <div class="single-product-add-to-cart-btns">
-                            <button type="submit" name="add" id="AddToCart" class="btn button button-primary">
-                                <span id="AddToCartText">Add to Cart</span>
-                            </button>
-                        </div>
-                        <div class="single-product-add-to-cart-btns">
-                            <button type="submit" name="add" id="BuyNow" class="btn button button-primary">
-                                <span id="BuyNowText">Buy it now</span>
-                            </button>
-                        </div>
+                                </fieldset>
+                          {% endfor %}
+                      </div>
+                  {% else %}
+                      {% assign variant = product.variants.first %}
+                      <div class="single-product-variant-title">{% unless variant.title == "Default Title" %}{{ variant.title }} - {% endunless %}{{ variant.price | money }}</div>
+                      <input name="id" value="{{ variant.id }}" type="hidden" />
+                  {% endif %}
+                  {% if product.available != true %}
+                      <div class="single-product-add-to-cart-btns">
+                          <button class="btn button button-primary" disabled>Sold Out</button>
+                      </div>
+                  {% elsif access_response == "REQUEST_LOGIN" %}
+                      <div class="single-product-add-to-cart-btns">
+                          {% render 'single-login-buttons', login_types: login_types %}
+                      </div>
+                  {% elsif access_response == "ACCESS_DENIED" %}
+                      <div class="single-product-add-to-cart-btns">
+                          <button class="btn button button-primary" disabled>You do not have access to this product. You may purchase access below.</button>
+                      </div>
+                  {% elsif product.available %}
+                      <div class="single-product-add-to-cart-btns">
+                          <button type="submit" name="add" id="AddToCart" class="btn button button-primary">
+                              <span id="AddToCartText">Add to Cart</span>
+                          </button>
+                      </div>
+                      <div class="single-product-add-to-cart-btns">
+                          <button type="submit" name="add" id="BuyNow" class="btn button button-primary">
+                              <span id="BuyNowText">Buy it now</span>
+                          </button>
+                      </div>
                     {% endif %}
                 </single-product-form>
                 <p class="single-product-description">{{ product.description }}</p>
