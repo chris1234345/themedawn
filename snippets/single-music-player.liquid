@@ -20,14 +20,14 @@ SOFTWARE.
 {% endcomment %}
 
 <style>
-  body {
-    padding-bottom: 90px;
-  }
-  @media screen and (max-width: 750px) {
     body {
-      padding-bottom: 118px;
+        padding-bottom: 90px;
     }
-  }
+    @media screen and (max-width: 750px) {
+        body {
+            padding-bottom: 118px;
+        }
+    }
 </style>
 
 <div class="single-footer-player">
@@ -37,8 +37,8 @@ SOFTWARE.
       <img src="{{ product.featured_image.src | img_url: '120x120' }}" />
     </div>
     <div class="track-info">
-      <span class="track-title">Track Title</span>
-      <span class="track-artist">Artist Name</span>
+      <span class="track-title"></span>
+      <span class="track-artist"></span>
     </div>
   </div>
 
@@ -56,9 +56,9 @@ SOFTWARE.
       </div>
       <div class="track-meta"
            style="display:none;">
-        <span class="track-tuning">C#</span>
+        <span class="track-tuning"></span>
         <span style="opacity: .25;">•</span>
-        <span class="track-bpm">126bpm</span>
+        <span class="track-bpm"></span>
       </div>
     </div>
 
@@ -81,7 +81,7 @@ SOFTWARE.
       <div class="single-track-add-to-cart single-footer-add-to-cart">
         <div class="single-track-btn">
           <i class="material-icons">add_shopping_cart</i>
-          <span>$0.99</span>
+          <span></span>
         </div>
       </div>
     </div>

@@ -69,29 +69,31 @@ SOFTWARE.
 
 {% if trackOnSale == "true" and previewAvailable == "true" %}
   <a
-    class='single-track {{previewClass}} {{availableClass}}'
-    href=''
-    data-track-id='{{ track.id }}'
-    data-variant-id='{{ track_variant }}'
-    data-href=''
-    data-preview-link='{{ previewLink | escape }}'
-    data-tuning='{{ tuning | escape }}'
-    data-bpm='{{ bpm | escape }}'
-    data-title='{% if track.metafields.track.featured_artist_names %}{{ track.title }} (feat. {{track.metafields.track.featured_artist_names}}){% else %}{{ track.title | escape }}{% endif %}'
-    data-artist='{{ product.metafields.album.artist_name | escape }}'
-    data-price='{{ track.price | money }}'
-  >
-    <div
-      class='single-track-play'
-      data-href=''
+      class='single-track {{previewClass}} {{availableClass}}'
+      href=''
       data-track-id='{{ track.id }}'
       data-variant-id='{{ track_variant }}'
+      data-href=''
       data-preview-link='{{ previewLink | escape }}'
       data-tuning='{{ tuning | escape }}'
       data-bpm='{{ bpm | escape }}'
       data-title='{% if track.metafields.track.featured_artist_names %}{{ track.title }} (feat. {{track.metafields.track.featured_artist_names}}){% else %}{{ track.title | escape }}{% endif %}'
       data-artist='{{ product.metafields.album.artist_name | escape }}'
+      data-album-track-count='{{ product.metafields.album.track_count }}'
       data-price='{{ track.price | money }}'
+  >
+    <div
+        class='single-track-play'
+        data-href=''
+        data-track-id='{{ track.id }}'
+        data-variant-id='{{ track_variant }}'
+        data-preview-link='{{ previewLink | escape }}'
+        data-tuning='{{ tuning | escape }}'
+        data-bpm='{{ bpm | escape }}'
+        data-title='{% if track.metafields.track.featured_artist_names %}{{ track.title }} (feat. {{track.metafields.track.featured_artist_names}}){% else %}{{ track.title | escape }}{% endif %}'
+        data-artist='{{ product.metafields.album.artist_name | escape }}'
+        data-album-track-count='{{ product.metafields.album.track_count }}'
+        data-price='{{ track.price | money }}'
     >
       {% if trackOnSale == "true" and previewAvailable == "true" %}
         <span class='single-play-icon'>
@@ -119,13 +121,13 @@ SOFTWARE.
     {% else %}
       {% if presale != "true" or trackOnSale == "true" %}
         <div
-          class='single-track-add-to-cart'
-          data-variant-id='{{ track_variant }}'
-          data-track-id='{{ track.id }}'
+            class='single-track-add-to-cart'
+            data-variant-id='{{ track_variant }}'
+            data-track-id='{{ track.id }}'
         >
           <div class='single-track-btn'>
             <i class='material-icons single-add-track-to-cart-icon-{{track.id}}'
-              >add_shopping_cart</i
+            >add_shopping_cart</i
             >
             <span>{{ track.price | money }}</span>
           </div>
@@ -150,13 +152,13 @@ SOFTWARE.
       <!-- Not For Individual Sale -->
     {% else %}
       <div
-        class='single-track-add-to-cart'
-        data-variant-id='{{ track_variant }}'
-        data-track-id='{{ track.id }}'
+          class='single-track-add-to-cart'
+          data-variant-id='{{ track_variant }}'
+          data-track-id='{{ track.id }}'
       >
         <div class='single-track-btn'>
           <i class='material-icons single-add-track-to-cart-icon-{{track.id}}'
-            >add_shopping_cart</i
+          >add_shopping_cart</i
           >
           <span>{{ track.price | money }}</span>
         </div>
