@@ -83,11 +83,14 @@
   flex-direction: column;
   justify-content: flex-end;
   width: 24%;
-  padding-right: 1em;
   text-decoration: none;
   vertical-align: middle;
   cursor: pointer;
   color: inherit;
+}
+
+.single-video-slider .single-card-video {
+  padding-right: 1em;
 }
 
 .single-card-video:last-of-type {
