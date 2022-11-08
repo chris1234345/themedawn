@@ -27,6 +27,31 @@ SOFTWARE.
 
 {{ '//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js' | script_tag }}
 
+<style>
+    .tickets-grid {
+        padding: 0;
+    }
+
+    .single-video-card {
+        display: block;
+    }
+
+    .single-video-card img {
+        width: 100%;
+    }
+
+    .single-video-title {
+        margin-top: .25em;
+        margin-bottom: 0;
+    }
+
+    @media screen and (max-width: 750px) {
+        .tickets-grid {
+            margin: 0 auto;
+        }
+    }
+</style>
+
 <div class="single-grid" style="margin-bottom: 5em;">
     <div class="single-grid-item">
         <div class="single-col col-4_4">
@@ -104,47 +129,83 @@ SOFTWARE.
         <single-spinner></single-spinner>
     </div>
     <div class="single-hidden-while-loading">
-    {% if viewable_content_key_names.size > 0 %}
-        <!-- Key level div -->
-        {% for viewable_content_key_row in viewable_content_key_rows %}
-            {% assign key_row_parts = viewable_content_key_row | split: ",," %}
-            <div id="{{ key_row_parts[0] }}" class="key_section{% unless forloop.first %} hidden{% endunless %}">
-                {% for key_row_part in key_row_parts offset: 1 %}
-                    {% assign row_parts = key_row_part | split: "," %}
-                    <!-- Row level div -->
-                    {% assign row_header = row_parts[0] | split: "|" %}
-                    <section class="single-grid-item {{ row_header[1] | handleize }}">
-                        <div class="single-col col-4_4">
-                            <h2 style="margin-bottom: 0;">{{ row_header[1] }}</h2>
-                        </div>
-                        {% if row_header[0] == 'PRODUCT' %}
-                            {% for product_input in row_parts offset: 1 %}
-                                <div class="single-col col-2_4">
-                                    {% render 'single-product-card', product_input: product_input %}
-                                </div>
-                            {% endfor %}
-                        {% elsif row_header[0] == 'VIDEO' %}
-                            {% for video_input in row_parts offset: 1 %}
-                                <div class="single-col col-1_4">
-                                    {% render 'single-video-card', video_input: video_input, show_title: 'true', show_date: 'true', show_artist: 'true', show_badge: 'false' %}
-                                </div>
-                            {% endfor %}
-                        {% elsif row_header[0] == 'PAGE' %}
-                            {% for page_input in row_parts offset: 1 %}
-                                <div class="single-col col-2_4">
-                                    {% render 'single-page-card', page_input: page_input %}
-                                </div>
-                            {% endfor %}
-                        {% endif %}
-                    </section>
-                {% endfor %}
+        {% if viewable_content_key_names.size > 0 %}
+            <!-- Key level div -->
+            {% for viewable_content_key_row in viewable_content_key_rows %}
+                {% assign key_row_parts = viewable_content_key_row | split: ",," %}
+                <div id="{{ key_row_parts[0] }}" class="key_section{% unless forloop.first %} hidden{% endunless %}">
+                    {% for key_row_part in key_row_parts offset: 1 %}
+                        {% assign row_parts = key_row_part | split: "," %}
+                        <!-- Row level div -->
+                        {% assign row_header = row_parts[0] | split: "|" %}
+                        <section class="single-grid-item {{ row_header[1] | handleize }}">
+                            <div class="single-col col-4_4">
+                                <h2 style="margin-bottom: 0;">{{ row_header[1] }}</h2>
+                            </div>
+                            {% if row_header[0] == 'PRODUCT' %}
+                                {% for product_input in row_parts offset: 1 %}
+                                    <div class="single-col col-2_4">
+                                        {% render 'single-product-card', product_input: product_input %}
+                                    </div>
+                                {% endfor %}
+                            {% elsif row_header[0] == 'VIDEO' %}
+                                {% for video_input in row_parts offset: 1 %}
+                                    <div class="single-col col-1_4">
+                                        {% render 'single-video-card', video_input: video_input, show_title: 'true', show_date: 'true', show_artist: 'true', show_badge: 'false' %}
+                                    </div>
+                                {% endfor %}
+                            {% elsif row_header[0] == 'PAGE' %}
+                                {% for page_input in row_parts offset: 1 %}
+                                    <div class="single-col col-2_4">
+                                        {% render 'single-page-card', page_input: page_input %}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </section>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <div style="text-align:center; margin: 5rem auto;">
+                <h2>No Exclusive Items at this time.</h2>
             </div>
+        {% endif %}
+
+        {% assign video_list = '' %}
+        {% for order in customer.orders %}
+            {% for line_item in order.line_items %}
+                {% for variant in line_item.product.variants %}
+                    {% unless video_list contains variant.metafields.single_livestream.livestream_id %}
+                        {% assign image_url = line_item.image | img_url: 'grande' %}
+                        {% assign video_list = video_list | append: "," | append: variant.metafields.single_livestream.livestream_id | append: "|" | append: image_url %}
+                    {% endunless %}
+                {% endfor %}
+            {% endfor %}
         {% endfor %}
-    {% else %}
-        <div style="text-align:center; margin: 5rem auto;">
-            <h2>No Exclusive Items at this time.</h2>
-        </div>
-    {% endif %}
+
+        {% unless video_list == empty %}
+            <div class="page-width">
+                <div class="single-grid-item tickets-grid">
+                    {% assign video_list_array = video_list | split: "," %}
+                    <div class="single-col col-4_4">
+                        <h2 class="h2" style="margin:0;">Tickets & Rentals</h2>
+                    </div>
+                    {% for page in pages %}
+                        {% for video in video_list_array %}
+                            {% if video contains page.metafields.single_livestream.livestream_id %}
+                                {% assign video_parts = video | split: "|" %}
+                                <div class="single-col col-1_4">
+                                    <a class="single-video-card" href="{{ page.url }}">
+                                        <img src="{{ video_parts[1] }}"/>
+                                        <h4 class="single-video-title">{{ page.title }}</h4>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endunless %}
     </div>
 </div>
 

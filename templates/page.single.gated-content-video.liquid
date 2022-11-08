@@ -103,7 +103,7 @@
   <div class="single-video-info">
     <h2 class="h2 single-video-title">{{ video_title }}</h2>
     <h4 class="h4 single-video-artist">{{ video_artist }}</h4>
-    <p>{{ video_description }}</p>
+    <p>{{ video_description | replace : "&lt;", "<" | replace: "&gt;", ">" | replace: "&quot;", '"' }}</p>
   </div>
 </div>
 
