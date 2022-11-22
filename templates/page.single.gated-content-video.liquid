@@ -31,10 +31,16 @@
       position: relative;
       background-color: #000000;
       text-align: center;
+      aspect-ratio: 16 / 9;
+      width: 100%;
     }
 
     .single-preview-image {
-      height: 100%;
+      position: relative;
+      min-height: 100%;
+      min-width: 100%;
+      transform: translateY(-50%);
+      top: 50%;
     }
 
     .single-lock {
@@ -103,7 +109,7 @@
   <div class="single-video-info">
     <h2 class="h2 single-video-title">{{ video_title }}</h2>
     <h4 class="h4 single-video-artist">{{ video_artist }}</h4>
-    <p>{{ video_description | replace : "&lt;", "<" | replace: "&gt;", ">" | replace: "&quot;", '"' }}</p>
+    <p>{{ video_description | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' }}</p>
   </div>
 </div>
 
