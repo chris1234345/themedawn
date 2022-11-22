@@ -4,7 +4,7 @@
 <section class="single-content-section">
   <h2 class="title {{ title_size }} video-collection-title">{{ section_title }}</h2>
   {% if section_description %}
-    <p class="video-collection-title">{{ section_description }}</p>
+    <p class="video-collection-description">{{ section_description }}</p>
   {% endif %}
   {% if display_type == 'grid' %}
     <div class="single-grid video-grid">
@@ -23,7 +23,9 @@
             </div>
           {% endfor %}
         {% else %}
-          <h2 style="width:100%; text-align: center;">No videos available</h2>
+          <div class="single-col col-4_4">
+            {% section 'single-gated-no-results' %}
+          </div>
         {% endif %}
       </section>
     </div>
@@ -49,13 +51,16 @@
           {% render 'single-chevron-right' %}
         </div>
       {% else %}
-        <h2 style="width:100%; text-align: center;">No videos available</h2>
+        <div class="single-col col-4_4">
+          {% section 'single-gated-no-results' %}
+        </div>
       {% endif %}
     </div>
   {% endif %}
   {% if video_landing_url %}
-    <div style="width:100%; text-align: center;">
-      <button class="btn button" onclick="location.href='{{ video_landing_url }}'">View All</button>
+    <div class="single-col col-4_4">
+      {% capture single_video_view_all %}{% section 'single-video-view-all' %}{% endcapture %}
+      {{ single_video_view_all | replace: 'VIDEO_LANDING_URL', video_landing_url }}
     </div>
   {% endif %}
 </section>
