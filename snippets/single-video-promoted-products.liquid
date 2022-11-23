@@ -76,7 +76,7 @@
             };
           </script>
         {% endif %}
-        <input type="submit" name="add" id="add" value="{{ 'products.product.add_to_cart' | t }}" class="single-collection-add-to-cart button">
+        <input type="submit" name="add" id="add" value="{% render 'single-add-to-cart' %}" class="single-collection-add-to-cart button">
       </form>
     </div>
   {%- endfor -%}
