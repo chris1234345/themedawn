@@ -205,7 +205,7 @@
                 class="btn btn--secondary-accent button button--secondary"
               >
                 <span id="AddToCartText">
-                  {{ 'products.product.add_to_cart' | t }}
+                  {% render 'single-add-to-cart' %}
                 </span>
               </button>
               {{ form | payment_button }}
