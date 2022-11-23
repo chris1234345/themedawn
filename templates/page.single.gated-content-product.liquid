@@ -121,7 +121,7 @@
             {% elsif product.available %}
               <button type="submit" name="add" id="AddToCart" class="btn button button--full-width button--secondary">
                 <span id="AddToCartText">
-                  {{ 'products.product.add_to_cart' | t }}
+                  {% render 'single-add-to-cart' %}
                 </span>
               </button>
               <button type="submit" name="add" id="BuyNow" class="btn button button--full-width button--primary">
