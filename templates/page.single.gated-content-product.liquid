@@ -41,6 +41,17 @@
   .single-product-add-to-cart-btns .single-login-button {
     width: 100%;
   }
+
+  .single-image-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .single-image-row > img {
+    width: 15%;
+    cursor: pointer;
+  }
 </style>
 
 <div class="single-grid single-product" itemscope itemtype="http://schema.org/Product">
@@ -54,9 +65,18 @@
 
     <!-- Left Column -->
     <div class="single-col col-2_4">
-      <div class="single-product-image">
-        <img src="{{ featured_image }}" alt="{{ featured_img_alt }}">
-      </div>
+      {% for image in product.images %}
+        <div class="single-product-image {% unless forloop.first %}hidden{% endunless %}" id="product-image-{{ forloop.index0 }}">
+          <img src="{{ image.src }}">
+        </div>
+      {% endfor %}
+      {% if product.images.size > 1 %}
+        <div class="single-image-row">
+          {% for image in product.images %}
+            <img src="{{ image.src }}" onclick="showImage({{ forloop.index0 }});">
+          {% endfor %}
+        </div>
+      {% endif %}
     </div>
     <!-- End Left Column -->
 
@@ -80,18 +100,18 @@
                   <legend class="form__label">{{ option.name }}</legend>
                   {% for value in option.values %}
                     <input
-                      class="single-product-option-input"
-                      type="radio"
-                      id="{{ product.id }}-{{ option_loop.index0 }}-{{ forloop.index0 }}"
-                      name="{{ option.name }}"
-                      value="{{ value }}"
-                      {% if forloop.first %}
-                        checked
-                      {% endif %}
+                            class="single-product-option-input"
+                            type="radio"
+                            id="{{ product.id }}-{{ option_loop.index0 }}-{{ forloop.index0 }}"
+                            name="{{ option.name }}"
+                            value="{{ value }}"
+                            {% if forloop.first %}
+                              checked
+                            {% endif %}
                     >
                     <label
-                      class="single-product-option-label"
-                      for="{{ product.id }}-{{ option_loop.index0 }}-{{ forloop.index0 }}"
+                            class="single-product-option-label"
+                            for="{{ product.id }}-{{ option_loop.index0 }}-{{ forloop.index0 }}"
                     >
                       {{- value -}}
                     </label>
@@ -178,3 +198,12 @@
     {% endfor %}
   </div>
 {% endif %}
+
+<script>
+  function showImage(index) {
+    document.querySelectorAll('.single-product-image').forEach(image => {
+      image.classList.add('hidden');
+    });
+    document.querySelector('#product-image-' + index).classList.remove('hidden');
+  }
+</script>
