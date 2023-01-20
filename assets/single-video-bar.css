@@ -183,6 +183,7 @@
   .video-collection-title,
   .video-collection-description {
     margin-left: 1.5rem;
+    padding: 0;
   }
 
   .single-card-video {

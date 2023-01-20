@@ -25,6 +25,10 @@ SOFTWARE.
 {{ 'single-base.css' | asset_url | stylesheet_tag }}
 
 <style>
+     .fan-sub-mgmt-wrapper {
+          margin: 2em auto 4em;
+     }
+
     .single-card-option {
         border: 1px solid rgba(var(--color-foreground), 0.08);
         border-radius: 5px;
@@ -336,6 +340,8 @@ SOFTWARE.
 		  border: 2px solid black;
 		  border-radius: 4px;
 		  background: #ececec;
+            padding: 5px;
+            margin-bottom: 10px;
 		}
 
 	 	.single-card-grid .single-fan-subscription.tiers-open .single-card-info .single-card-title-wrapper {
@@ -605,7 +611,7 @@ SOFTWARE.
     }
 </style>
 
-<div class="single-gated-page page-width">
+<div class="single-gated-page page-width fan-sub-mgmt-wrapper">
     {% if customer %}
         {% include 'single-customer-storage' %}
         <single-fan-subscription-management></single-fan-subscription-management>
