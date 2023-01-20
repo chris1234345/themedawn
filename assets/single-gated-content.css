@@ -275,11 +275,16 @@ SOFTWARE.
   margin-top: 0;
 }
 
-.single-card-description {
+.single-card-description p {
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  margin-bottom: 0;
+}
+
+.single-card-description p:not(:first-of-type) {
+    display: none;
 }
 
 .card__badge {

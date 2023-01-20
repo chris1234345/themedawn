@@ -69,11 +69,9 @@ SOFTWARE.
 
 {% if trackOnSale == "true" and previewAvailable == "true" %}
   <a
-      class='single-track {{previewClass}} {{availableClass}}'
-      href=''
+      class='single-track {{previewClass}} {{availableClass}} js-no-transition'
       data-track-id='{{ track.id }}'
       data-variant-id='{{ track_variant }}'
-      data-href=''
       data-preview-link='{{ previewLink | escape }}'
       data-tuning='{{ tuning | escape }}'
       data-bpm='{{ bpm | escape }}'
