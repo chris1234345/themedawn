@@ -35,13 +35,7 @@ SOFTWARE.
 {% assign livestream_host = pages[page_handle].metafields.single_livestream['livestream_host'] %}
 {% assign single_host = pages[page_handle].metafields.single_livestream['single_host'] %}
 {% assign support_link = pages[page_handle].metafields.single_livestream['support_link'] %}
-{% if support_link == blank %}
-  {% assign support_link = "https://sn.gl/livestream-support" %}
-{% endif %}
 {% assign faq_link = pages[page_handle].metafields.single_livestream['faq_link'] %}
-{% if faq_link == blank %}
-  {% assign faq_link = "https://sn.gl/event-help" %}
-{% endif %}
 {% assign token = pages[page_handle].metafields.single_livestream['bypass_token'] %}
 {% assign chat_enabled = pages[page_handle].metafields.single_livestream['chat_enabled'] %}
 {% assign collection_handle = pages[page_handle].metafields.single_livestream['collection_handle'] %}
@@ -86,7 +80,7 @@ SOFTWARE.
 {% endunless %}
 {% if send_to_login and request.path != "/challenge" %}
   {% capture login_section %}{% section 'single-video-login' %}{% endcapture %}
-  {{ login_section | replace: 'FAQ_LINK', faq_link |  replace: 'PAGE_URL', page.url }}
+  {{ login_section | replace: 'PAGE_URL', page.url }}
 {% else %}
   {% if customer.tags contains customer_tag or customer.tags contains global_tag or video_access contains livestream_id or bypass_token_used or shopify_preview_host %}
     {% assign has_ticket = true %}
@@ -145,11 +139,9 @@ SOFTWARE.
     </script>
   {% endif %}
   {% if has_ticket != true %}
-    {% capture no_ticket %}{% section 'single-video-no-ticket' %}{% endcapture %}
-    {{ no_ticket | replace: 'FAQ_LINK', faq_link }}
+    {% section 'single-video-no-ticket' %}
   {% endif %}
   {% if content_expired and has_ticket %}
-    {% capture expired_section %} {% section 'single-video-content-expired' %}{% endcapture %}
-    {{ expired_section | replace: 'FAQ_LINK', faq_link }}
+    {% section 'single-video-content-expired' %}
   {% endif %}
 {% endif %}
