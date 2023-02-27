@@ -19,113 +19,26 @@
   -->
 {% endcomment %}
 
-{% comment %}
-  <!-- Single Default Styles - Can be edited in assets/single.css -->
-{% endcomment %}
-{{ 'single-base.css' | asset_url | stylesheet_tag }}
-{{ 'single-video.css' | asset_url | stylesheet_tag }}
-
-{% if preview_enabled == 'true' %}
-  <style>
-    .preview {
-      position: relative;
-      background-color: #000000;
-      text-align: center;
-      aspect-ratio: 16 / 9;
-      width: 100%;
-    }
-
-    .single-preview-image {
-      position: relative;
-      min-height: 100%;
-      min-width: 100%;
-      transform: translateY(-50%);
-      top: 50%;
-    }
-
-    .single-lock {
-      width: 5%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1;
-      opacity: 0;
-      animation: 2s fadeIn 1s forwards;
-      -webkit-animation: 2s fadeIn 1s forwards;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    @-webkit-keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-  </style>
-{% endif %}
-
-{% if preview_enabled == 'true' %}
-  {% comment %}
-    <!-- Video Preview (thumbnail only) -->
-  {% endcomment %}
-  <div class="single-video-wrap preview">
-    <img class="single-preview-image" src="{{ video_thumbnail }}">
-    <div class="single-lock">
-      {% render 'single-icon-padlock' %}
-    </div>
-  </div>
-{% else %}
-  {% comment %}
-    <!-- Video Player -->
-  {% endcomment %}
-  <div class="single-video-wrap">
-    <div
-      id="single-livestream-player"
-      class="single-video-player {% if chat_enabled == 'false' %}chat-disabled{% endif %}"
-    >
-      <script
-        src="https://{{ video_host }}/assets/livestream-embed.js?id={{ video_id }}&customerEmail={{ customer.email }}{% if customer_wallet %}&customerId={{ customer_wallet }}{% endif %}"
-        type="text/javascript"
-      ></script>
-    </div>
-  </div>
-{% endif %}
-
-{% comment %}
-  <!-- Video Description -->
-{% endcomment %}
-<div class="single-grid-item">
-  <div class="single-video-info">
-    <h2 class="h2 single-video-title">{{ video_title }}</h2>
-    <h4 class="h4 single-video-artist">{{ video_artist }}</h4>
-    <p>{{ video_description | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' }}</p>
-  </div>
-</div>
+{% render 'single-video-block', preview_enabled: preview_enabled, chat_enabled: chat_enabled,
+        show_title: show_title, show_artist: show_artist, show_description: show_description,
+        title_size: title_size, artist_size: artist_size, customer_wallet: customer_wallet,
+        video_host: video_host, video_id: video_id, video_title: video_title, video_artist: video_artist,
+        video_description: video_description, video_thumbnail: video_thumbnail, section_id: section_id %}
 
 {% comment %}
   <!-- Products for unlocking the video -->
 {% endcomment %}
 {% if preview_enabled == 'true' %}
-  {{ 'single-gated-content.css' | asset_url | stylesheet_tag }}
-  {% render 'single-key-products', key_product_ids: key_product_ids, key_product_listings: key_product_listings %}
+    {{ 'single-gated-content.css' | asset_url | stylesheet_tag }}
+    {% render 'single-need-access', title_size: 'h2', key_product_ids: key_product_ids, key_product_listings: key_product_listings %}
 {% endif %}
 
 {% comment %}
   <!-- Promoted Products -->
 {% endcomment %}
 {% unless preview_enabled == 'true' %}
-  {% if collections[collection_handle].products %}
-    {% render 'single-video-promoted-products', collection_handle: collection_handle, video_id: video_id %}
-  {% endif %}
+    {% if collections[collection_handle].products %}
+        {% render 'single-video-promoted-products', collection_handle: collection_handle, video_id: video_id,
+                title_size: 'h5', column_count: '4' %}
+    {% endif %}
 {% endunless %}
