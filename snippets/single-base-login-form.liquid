@@ -96,11 +96,13 @@
     </div>
   </div>
   <!-- END #form-recover -->
-
-  {% if include_faq %}
-    <h4>{{ 'single.login.help_header' | t }}</h4>
-    <p>
-      <a href="FAQ_LINK" target="_blank">{{ 'single.login.faq' | t }}</a>
-    </p>
-  {% endif %}
 </section>
+
+<script type="text/javascript">
+  function resetToggle() {
+    const login = document.getElementById('form-login');
+    login.classList.toggle('hidden');
+    const reset = document.getElementById('form-recover');
+    reset.classList.toggle('hidden');
+  }
+</script>
