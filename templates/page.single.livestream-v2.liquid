@@ -40,7 +40,7 @@ SOFTWARE.
 {% assign chat_enabled = pages[page_handle].metafields.single_livestream['chat_enabled'] %}
 {% assign collection_handle = pages[page_handle].metafields.single_livestream['collection_handle'] %}
 {% assign customer_tag = pages[page_handle].metafields.single_livestream['customer_tag'] %}
-{% assign product_row_count = "3" %}
+{% assign column_count = "4" %}
 {% assign global_tag = "has-ticket" %}
 {% assign video_product_type = pages[page_handle].metafields.single_livestream['video_product_type'] %}
 {% assign today_date = 'now' | date: '%s'| plus: 0 %}
@@ -122,7 +122,8 @@ SOFTWARE.
       <!-- Promoted Products -->
     {% endcomment %}
     {% if collections[collection_handle].products %}
-      {% include 'single-video-promoted-products' with collection_handle, livestream_id as video_id %}
+      {% render 'single-video-promoted-products', collection_handle: collection_handle, video_id: livestream_id,
+              title_size: 'h5', column_count: column_count %}
     {% endif %}
     {% assign livestream = true %}
     {% include 'single-base-ajaxify' with livestream, livestream_id, single_host %}
