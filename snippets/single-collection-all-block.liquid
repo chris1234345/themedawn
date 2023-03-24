@@ -65,7 +65,8 @@
                                             id="single-dropdown-{{ viewable_content_key_parts[1] }}"
                                             class="single-dropdown-selection{% unless forloop.first %} hidden{% endunless %}"
                                     >
-                                        <div class="single-dropdown-img"><img src="{{ viewable_content_key_parts[2] }}"></div>
+                                        <div class="single-dropdown-img"><img src="{{ viewable_content_key_parts[2] }}">
+                                        </div>
                                         <span>{{ viewable_content_key_parts[0] }}</span>
                                     </div>
                                 {% endfor %}
@@ -79,7 +80,8 @@
                                         class="single-dropdown-content-row"
                                         onclick="updateKeySelection('{{ viewable_content_key_parts[1] }}');"
                                 >
-                                    <div class="single-dropdown-img"><img src="{{ viewable_content_key_parts[2] }}"></div>
+                                    <div class="single-dropdown-img"><img src="{{ viewable_content_key_parts[2] }}">
+                                    </div>
                                     <span>{{ viewable_content_key_parts[0] }}</span>
                                 </div>
                             {% endfor %}
@@ -107,16 +109,16 @@
                 {% endif %}
             </div>
         </div>
-        </div>
-        {% comment %}
-        <!-- END - Search Bar -->
-        {% endcomment %}
+    </div>
+    {% comment %}
+    <!-- END - Search Bar -->
+    {% endcomment %}
 
-        <div class="single-col col-1_1 single-gate-loading" style="margin: 4em 0;" hidden>
+    <div class="single-col col-1_1 single-gate-loading" style="margin: 4em 0;" hidden>
         <single-spinner></single-spinner>
-        </div>
+    </div>
 
-        <div class="single-hidden-while-loading">
+    <div class="single-hidden-while-loading">
         {% comment %}
           <!-- START - Video Collection Grid -->
         {% endcomment %}
@@ -124,13 +126,15 @@
             <!-- Key level div -->
             {% for viewable_content_key_row in viewable_content_key_rows %}
                 {% assign key_row_parts = viewable_content_key_row | split: ',,' %}
-                <div id="{{ key_row_parts[0] }}" class="key_section{% unless forloop.first %} hidden{% endunless %}">
+                <div id="single-content-{{ key_row_parts[0] }}"
+                     class="key_section{% unless forloop.first %} hidden{% endunless %}">
                     {% for key_row_part in key_row_parts offset: 1 %}
                         {% assign row_parts = key_row_part | split: ',' %}
                         <!-- Row level div -->
                         {% assign row_header = row_parts[0] | split: '|' %}
                         <section class="single-grid-item {{ row_header[1] | handleize }}">
-                            <div class="single-col col-4_4 {{ row_title_size }}" style="margin-bottom: 0;">{{ row_header[1] }}</div>
+                            <div class="single-col col-4_4 {{ row_title_size }}"
+                                 style="margin-bottom: 0;">{{ row_header[1] }}</div>
                             {% if row_header[0] == 'PRODUCT' %}
                                 {% for product_input in row_parts offset: 1 %}
                                     <div class="single-col col-2_4">
@@ -175,11 +179,16 @@
 {% if viewable_content_key_names.size > 1 %}
     <script>
         function updateKeySelection(id) {
-            $('.key_section').addClass('hidden');
-            $('.single-dropdown-selection').addClass('hidden');
-            $('#' + id).removeClass('hidden');
-            $('#single-dropdown-' + id).removeClass('hidden');
+            getAllElements('.key_section').forEach(element => element.classList.add('hidden'));
+            getAllElements('.single-dropdown-selection').forEach(element => element.classList.add('hidden'));
+            getAllElements('#single-content-' + id).forEach(element => element.classList.remove('hidden'));
+            getAllElements('#single-dropdown-' + id).forEach(element => element.classList.remove('hidden'));
             document.activeElement.blur();
+        }
+
+        function getAllElements(selector) {
+            const elements = document.querySelectorAll(selector);
+            return (!elements || elements.length === 0) ? [] : elements;
         }
     </script>
 {% endif %}
