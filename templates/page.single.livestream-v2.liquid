@@ -107,7 +107,7 @@ SOFTWARE.
     <div class="single-video-wrap">
       <div id="single-livestream-player" 
            class="single-video-player {% if chat_enabled == 'false' %}chat-disabled{% endif %}">
-        <script src="https://{{ livestream_host }}/assets/livestream-embed.js?id={{ livestream_id }}&customerEmail={{ customer.email }}{% if bypass_token_used %}&token={{ token }}{% endif %}{% if soundcheck %}&soundcheck=true{% endif %}" type="text/javascript"></script>
+        <script src="https://{{ livestream_host }}/assets/livestream-embed.js?id={{ livestream_id }}&customerEmail={{ customer.email }}{% if bypass_token_used %}&token={{ token }}{% endif %}{% if soundcheck %}&soundcheck=true{% endif %}{% unless shop.metafields.single_inc.whitelabel_enabled.value == true %}&watermark=true{% endunless %}" type="text/javascript"></script>
       </div>
     </div>
     {% comment %}
