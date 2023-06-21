@@ -1,0 +1,52 @@
+{{ 'single-video-chat.css' | asset_url | stylesheet_tag }}
+
+<style>
+    .popup {
+        background: {{ background_color }};
+        color: {{ font_color }};
+    }
+
+    .popup .recover-links {
+        display: none !important;
+    }
+</style>
+
+<div id="chat-login-modal" class="pulogin hidden">
+    <div class="popup">
+        <button onClick="closeModal('chat-login-modal')" class="close" href="#">&times;</button>
+        <div class="content">
+            {% capture single-customer-login %}{% section 'single-base-login' %}{% endcapture %}
+            {{ single-customer-login | replace: 'PAGE_URL', request.path }}
+        </div>
+    </div>
+</div>
+
+<div id="chat-register-modal" class="pulogin hidden">
+    <div class="popup">
+        <button onClick="closeModal('chat-register-modal')" class="close" href="#">&times;</button>
+        <div class="content">
+            {% capture single-customer-register %}{% section 'single-base-register' %}{% endcapture %}
+            {{ single-customer-register | replace: 'PAGE_URL', request.path }}
+        </div>
+    </div>
+</div>
+
+<script>
+    function openModal(id) {
+        const modal = document.getElementById(id);
+        modal.classList.remove('hidden');
+    }
+
+    function closeModal(id) {
+        const modal = document.getElementById(id);
+        modal.classList.add('hidden');
+    }
+
+    function handleIframeMessage(event) {
+        if (event.data.type === 'openChatModal') {
+            openModal(event.data.id);
+        }
+    }
+
+    window.addEventListener('message', (e) => handleIframeMessage(e), false);
+</script>

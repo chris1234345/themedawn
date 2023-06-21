@@ -109,6 +109,7 @@ SOFTWARE.
            class="single-video-player {% if chat_enabled == 'false' %}chat-disabled{% endif %}">
         <script src="https://{{ livestream_host }}/assets/livestream-embed.js?id={{ livestream_id }}&customerEmail={{ customer.email }}{% if bypass_token_used %}&token={{ token }}{% endif %}{% if soundcheck %}&soundcheck=true{% endif %}{% unless shop.metafields.single_inc.whitelabel_enabled.value == true %}&watermark=true{% endunless %}" type="text/javascript"></script>
       </div>
+      {% render 'single-chat-modal', background_color: 'rgba(255,255,255,0.9)', font_color: '#000000' %}
     </div>
     {% comment %}
       <!-- Page Body Content -->
