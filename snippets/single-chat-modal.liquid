@@ -1,4 +1,5 @@
 {{ 'single-video-chat.css' | asset_url | stylesheet_tag }}
+{{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
 
 <style>
     .popup {
@@ -15,8 +16,7 @@
     <div class="popup">
         <button onClick="closeModal('chat-login-modal')" class="close" href="#">&times;</button>
         <div class="content">
-            {% capture single-customer-login %}{% section 'single-base-login' %}{% endcapture %}
-            {{ single-customer-login | replace: 'PAGE_URL', request.path }}
+            {% section 'single-base-login' %}
         </div>
     </div>
 </div>
@@ -25,8 +25,7 @@
     <div class="popup">
         <button onClick="closeModal('chat-register-modal')" class="close" href="#">&times;</button>
         <div class="content">
-            {% capture single-customer-register %}{% section 'single-base-register' %}{% endcapture %}
-            {{ single-customer-register | replace: 'PAGE_URL', request.path }}
+            {% section 'single-base-register' %}
         </div>
     </div>
 </div>
@@ -35,6 +34,7 @@
     function openModal(id) {
         const modal = document.getElementById(id);
         modal.classList.remove('hidden');
+        setupCreateCustomerForm();
     }
 
     function closeModal(id) {
@@ -48,5 +48,39 @@
         }
     }
 
-    window.addEventListener('message', (e) => handleIframeMessage(e), false);
+    function setupCreateCustomerForm() {
+        jQuery('#create_customer').submit(function (event) {
+            event.preventDefault();
+            const data = jQuery(this).serialize();
+
+            jQuery.post('/account', data).done(function (data) {
+                const formErrors = jQuery(data).find('.errors').text();
+                const formMessages = jQuery(data).find('.form__message').siblings('ul').text();
+                const errorsElement = jQuery('#create_customer .errors');
+
+                //if there are errors show them in the html form
+                if (formErrors !== "" && formErrors !== 'undefined') {
+                    errorsElement.html(formErrors);
+                    errorsElement.show();
+                } else if (formMessages !== "" && formMessages !== 'undefined') {
+                    errorsElement.html(formMessages);
+                    errorsElement.show();
+                } else {
+                    document.location.href = window.location.href;
+                }
+            });
+            return false;
+        });
+    }
+
+    function chatModalSetup() {
+        document.querySelectorAll('[name="return_to"]').forEach(node => node.value = window.location.href);
+        window.addEventListener('message', (e) => handleIframeMessage(e), false);
+    }
+
+    if (/complete|interactive|loaded/.test(document.readyState)) {
+        chatModalSetup();
+    } else {
+        window.addEventListener('DOMContentLoaded', chatModalSetup);
+    }
 </script>
