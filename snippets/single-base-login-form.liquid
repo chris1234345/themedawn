@@ -52,7 +52,9 @@
     <h2 id="LoginHeading" class="text-center">{{ 'single.login.title' | t }}</h2>
     <p>{{ 'single.login.subtext' | t }}</p>
     {% form 'customer_login' %}
-      {{ form_errors | default_errors }}
+      <div class="errors">
+        {{ form_errors | default_errors }}
+      </div>
       <input type="hidden" name="return_to" value="PAGE_URL">
       <div class="email field">
         <input type="email" name="customer[email]" placeholder="Email">
