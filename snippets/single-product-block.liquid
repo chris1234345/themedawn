@@ -80,7 +80,7 @@
                 {% render 'single-nft-progress-bar', product: product %}
                 {% if description_position == 'above_price' %}<p class="single-product-description">{{ product.description }}</p>{% endif %}
                 <!-- Add to Cart -->
-                <single-product-form product='{{ product | json }}'>
+                <single-product-form product='{ "id": "{{ product.id }}", "options": {{ product.options | json }}, "variants": {{ product.variants | json }} }'>
                     <div class="single-product-price {{ price_size }}">{{ product.variants[0].price | money_with_currency }}</div>
                     {% if product.variants.size > 1 %}
                         <div class="single-product-options">
