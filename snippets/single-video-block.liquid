@@ -92,7 +92,7 @@
     <div class="single-video-wrap">
         <div id="single-livestream-player{{ section_id }}"
              class="single-video-player {% if chat_enabled == 'false' %}chat-disabled{% endif %}">
-            <script src="https://{{ video_host }}/assets/livestream-embed.js?id={{ video_id }}&customerEmail={{ customer.email }}{% if customer_wallet %}&customerId={{ customer_wallet }}{% endif %}&sectionId={{ section_id }}&chatEnabled={{ chat_enabled }}{% unless shop.metafields.single_inc.whitelabel_enabled.value == true %}&watermark=true{% endunless %}"
+            <script src="https://{{ video_host }}/assets/livestream-embed.js?id={{ video_id }}&customerEmail={{ customer.email }}{% if customer_wallet %}&customerId={{ customer_wallet }}{% endif %}&sectionId={{ section_id }}&chatEnabled={{ chat_enabled }}{% if bypass_token %}&token={{ bypass_token }}&soundcheck=true{% endif %}{% unless shop.metafields.single_inc.whitelabel_enabled.value == true %}&watermark=true{% endunless %}"
                     type="text/javascript"></script>
         </div>
         {% render 'single-chat-modal', background_color: 'rgba(255,255,255,0.9)', font_color: '#000000', login_url: login_url, register_url: register_url %}
