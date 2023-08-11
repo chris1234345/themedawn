@@ -35,6 +35,7 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
   width: 100%;
+  padding: 1em 0;
 }
 
 .single-video-slider::-webkit-scrollbar {
@@ -46,6 +47,10 @@
   margin-right: 1rem;
   cursor: pointer;
   position: relative;
+}
+
+.single-video-slider .single-card-video {
+  margin-right: 2rem;
 }
 
 .single-video-badge {
@@ -64,22 +69,22 @@
   line-height: 1;
 }
 
-.single-card-video:first-of-type {
+.video-slider .single-card-video:first-of-type {
   margin-left: 3em;
 }
 
-.single-card-video:last-of-type {
+.video-slider .single-card-video:last-of-type {
   margin-right: 3em;
 }
 
 @media screen and (max-width: 768px) {
-  .single-card-video:first-of-type {
-      margin-left: 1em;
-    }
-  
-    .single-card-video:last-of-type {
-      margin-right: 1em;
-    }
+  .video-slider .single-card-video:first-of-type {
+    margin-left: 1em;
+  }
+
+  .video-slider .single-card-video:last-of-type {
+    margin-right: 1em;
+  }
 }
 
 .single-card-video .single-card-image-wide {
@@ -93,16 +98,20 @@
   background-size: contain;
 }
 
+.single-card-video:hover .single-card-image-wide {
+  transform: scale(1.025);
+  transition: all linear 0.1s;
+}
+
 .single-card-row .single-chevron {
   display: flex;
+  align-items: center;
   cursor: pointer;
-  position: absolute;
   width: calc(4% - 16px);
   z-index: 1;
-  top: 48%;
+  position: absolute;
+  top: 1em;
   bottom: 0;
-  line-height: 1;
-  transform: translateY(-50%);
   opacity: 0;
   z-index: 20;
   transition: opacity 0.3s ease-in-out;
@@ -185,4 +194,61 @@
 
 .paging-btn.prev {
   margin-right: 1rem;
+}
+
+/* Grid fixes */
+.video-grid .single-card-video {
+  width: 100% !important;
+  margin: 0;
+  padding: 0;
+}
+
+.video-grid .single-grid-item {
+  margin: 1.5em auto;
+  width: 100%;
+  max-width: none;
+  padding: 0 calc(5rem - 1rem);
+}
+
+.video-grid .single-col {
+  padding: 0.5em !important;
+}
+
+.video-grid .single-card-video .single-card-image-wide {
+  box-shadow: 0 1px 1px #00000014, 0 2px 2px #00000014, 0 4px 4px #00000014, 0 8px 8px #00000014, 0 16px 16px #00000014;
+}
+
+/*Tablet*/
+@media screen and (max-width: 1400px) {
+  .single-card-video {
+    width: 27.5% !important;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .video-grid .single-col {
+    width: 50% !important;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 750px) {
+  .single-card-row {
+    padding-left: 1.5rem;
+  }
+
+  .video-collection-title,
+  .video-collection-description {
+    margin-left: 1.5rem;
+    padding: 0;
+  }
+
+  .single-card-video {
+    width: 70% !important;
+  }
+
+  .video-grid .single-grid-item {
+    flex-direction: row;
+    padding: 0 1rem;
+  }
 }
