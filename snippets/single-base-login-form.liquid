@@ -68,18 +68,13 @@
   }
 </style>
 
-{% assign page_url = 'PAGE_URL' %}
-{% if page.url %}
-  {% assign page_url = page.url %}
-{% endif %}
-
 <section class="single-login customer">
   {% comment %}
     <!-- START #form-login -->
   {% endcomment %}
   <div id="form-login" class="single-form">
     <h2 id="LoginHeading" class="text-center">{{ 'single.login.title' | t }}</h2>
-    {% form 'customer_login', return_to: page_url %}
+    {% form 'customer_login', return_to: 'PAGE_URL' %}
       <div class="errors single-errors">
         {% if form.errors %}
           {{ form_errors | default_errors }}
@@ -316,9 +311,17 @@
       request.open('POST', action, true);
       request.onreadystatechange = () => {
         if (request.readyState === 4) {
-          if (request.responseURL?.includes('/challenge') || request.responseURL === returnUrl) {
-            document.location.href = request.responseURL;
-            return;
+          if (request.responseURL) {
+            if (request.responseURL.includes('/challenge') || request.responseURL === returnUrl ||
+                request.responseURL.includes(returnUrl)) {
+              document.location.href = request.responseURL;
+              return;
+            }
+            const responseURL = new URL(request.responseURL);
+            if (window.location.hostname === responseURL.hostname && responseURL.pathname === '/') {
+              document.location.href = returnUrl;
+              return;
+            }
           }
 
           const parser = new DOMParser();
@@ -352,9 +355,9 @@
   }
 
   function setupForms(registerUrl, loginUrl) {
-    setupForm('#create_customer', getUrlOrDefault(registerUrl));
-    setupForm('#customer_login', getUrlOrDefault(loginUrl));
-    setupForm('form[action="/account/recover"]', getUrlOrDefault(loginUrl));
+    setupForm('#create_customer', registerUrl);
+    setupForm('#customer_login', loginUrl);
+    setupForm('form[action="/account/recover"]', loginUrl);
   }
 
   function loginSetup() {
@@ -386,7 +389,7 @@
         lastNameField.value = lastNameParam;
       }
     }
-    setupForms();
+    setupForms('PAGE_URL', 'PAGE_URL');
   }
 
   if (/complete|interactive|loaded/.test(document.readyState)) {
