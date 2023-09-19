@@ -114,7 +114,7 @@
   <div id="form-recover" class="single-form hidden">
     <h2 id="LoginHeading" class="text-center">{{ 'single.recover_password.title' | t }}</h2>
     <p>{{ 'single.recover_password.subtext' | t }}</p>
-    {% form 'recover_customer_password' %}
+    {% form 'recover_customer_password', return_to: 'PAGE_URL' %}
       <div class="errors single-errors">
         {% if form.errors %}
           {{ form_errors | default_errors }}
@@ -146,7 +146,7 @@
   <div id="form-register" class="single-form hidden">
     <div class="customer register">
       <h2>{{ 'single.register.title' | t }}</h2>
-      {% form 'create_customer' %}
+      {% form 'create_customer', return_to: 'PAGE_URL' %}
         <div class="errors single-errors">
           {% if form.errors %}
             {{ form_errors | default_errors }}
@@ -257,6 +257,10 @@
 </section>
 
 <script type="text/javascript">
+  function isCaptchaEnabled() {
+    return !!window.Shopify.recaptchaV3;
+  }
+
   function toggleForms(showFormId, hideFormIds) {
     document.getElementById(showFormId).classList.remove('hidden');
     hideFormIds.forEach((formId) => {
@@ -297,13 +301,17 @@
     return url;
   }
 
-  function setupForm(formId, returnUrl) {
-    const old_element = document.querySelector(formId);
-    const new_element = old_element.cloneNode(true);
-    old_element.parentNode.replaceChild(new_element, old_element);
-    new_element.querySelectorAll('[name="return_to"]').forEach((node) => (node.value = returnUrl));
+  function setupForm(formId, url) {
+    const returnUrl = getUrlOrDefault(url);
+    const formElement = document.querySelector(formId);
+    formElement.querySelectorAll('[name="return_to"]').forEach((node) => (node.value = returnUrl));
+    if (isCaptchaEnabled()) {
+      return;
+    }
+    const cloneElement = formElement.cloneNode(true);
+    formElement.parentNode.replaceChild(cloneElement, formElement);
 
-    new_element.addEventListener('submit', function (event) {
+    cloneElement.addEventListener('submit', function (event) {
       event.preventDefault();
       const action = this.getAttribute('action');
       const params = new FormData(this);
@@ -311,9 +319,12 @@
       request.open('POST', action, true);
       request.onreadystatechange = () => {
         if (request.readyState === 4) {
-          if (request.responseURL) {
+          if (request.responseURL &&
+              !request.responseURL.includes('/account/register') &&
+              !request.responseURL.includes('/account/login') &&
+              !request.responseURL.includes('/account/recover')) {
             if (request.responseURL.includes('/challenge') || request.responseURL === returnUrl ||
-                request.responseURL.includes(returnUrl)) {
+                    request.responseURL.includes(returnUrl)) {
               document.location.href = request.responseURL;
               return;
             }
