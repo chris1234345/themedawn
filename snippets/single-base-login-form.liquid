@@ -30,7 +30,7 @@
   }
 
   .single-login {
-    padding: 0 15px;
+    padding: 2em;
     box-sizing: border-box;
     text-align: center;
   }
@@ -38,7 +38,6 @@
   .single-login form {
     width: 100%;
     max-width: 700px;
-    padding: 15px;
     box-sizing: border-box;
     margin: 0 auto;
   }
@@ -48,6 +47,10 @@
     padding: 0.75em;
     font-family: inherit;
     font-size: inherit;
+  }
+
+  .single-login .login-head {
+    margin: 0;
   }
 
   .single-field {
@@ -94,7 +97,7 @@
     <!-- START #form-login -->
   {% endcomment %}
   <div id="form-login" class="single-form">
-    <h2 id="LoginHeading" class="text-center">{{ 'single.login.title' | t }}</h2>
+    <h2 class="login-head">{{ 'single.login.title' | t }}</h2>
     {% form 'customer_login', return_to: 'PAGE_URL' %}
       <div class="single-field email">
         <label for="email">{{ 'single.login.email' | t }}</label>
@@ -128,7 +131,7 @@
     <!-- START #form-recover -->
   {% endcomment %}
   <div id="form-recover" class="single-form hidden">
-    <h2 id="LoginHeading" class="text-center">{{ 'single.recover_password.title' | t }}</h2>
+    <h2 class="login-head">{{ 'single.recover_password.title' | t }}</h2>
     <p>{{ 'single.recover_password.subtext' | t }}</p>
     {% form 'recover_customer_password', return_to: 'PAGE_URL' %}
       <div class="single-field email">
@@ -156,7 +159,7 @@
   {% endcomment %}
   <div id="form-register" class="single-form hidden">
     <div class="customer register">
-      <h2>{{ 'single.register.title' | t }}</h2>
+      <h2 class="login-head">{{ 'single.register.title' | t }}</h2>
       {% form 'create_customer', return_to: 'PAGE_URL' %}
         <div class="single-field">
           <label for="text">{{ 'single.register.first_name' | t }}</label>
