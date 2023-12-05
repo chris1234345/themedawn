@@ -79,6 +79,19 @@
   border-radius: 10px;
 }
 
+.single-video-time {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  font-size: 75%;
+  font-weight: 600;
+  letter-spacing: 0;
+  padding: 0 0.5em;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+}
+
 .single-card-video .single-card-image-wide {
   display: block;
   width: 100%;

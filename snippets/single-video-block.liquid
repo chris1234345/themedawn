@@ -111,3 +111,16 @@
     </div>
 </div>
 {% endif %}
+
+<script>
+    dispatchVideoId = () => {
+        document.dispatchEvent(new CustomEvent('video:loaded', { detail: '{{ video_id }}'}));
+    };
+    {% comment %} dispatch the event once when this content loads {% endcomment %}
+    dispatchVideoId();
+
+    {% comment %} listen for video:requested in case this block renders before any
+                  associated promoted product blocks
+    {% endcomment %}
+    document.addEventListener('video:requested', dispatchVideoId);
+</script>
