@@ -37,10 +37,28 @@
     .single-video-title {
         margin-top: 0.25em;
         margin-bottom: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .single-collection-all-wrapper {
+        padding-top: var(--topPadding);
+        padding-bottom: var(--bottomPadding);
     }
 </style>
 
-<div class="single-grid">
+<div class="single-grid single-collection-all-wrapper">
+    <div class="single-grid-item">
+        <div class="single-col col-4_4">
+        {% if title %}
+            <h2 class="title {{ title_size }}">{{ title }}</h2>
+        {% endif %}
+        {% if sub_title %}
+            <p style="margin-top: 1em; margin: 0;">{{ sub_title }}</h2>
+        {% endif %}
+        </div>
+    </div>
     <div class="single-grid-item">
         <div class="single-col col-4_4">
             <div class="single-header-bar {% unless viewable_content_key_names.size > 0 or content_query %}single-empty-header-bar{% endunless %}">
@@ -147,8 +165,11 @@
                         {% if row_visible == true %}
                             {% assign section_visible = true %}
                             <section class="single-grid-item {{ row_header[1] | handleize }}">
-                                <div class="single-col col-4_4 {{ row_title_size }}"
-                                     style="margin-bottom: 0;">{{ row_header[1] }}</div>
+                                <div class="single-col col-4_4"
+                                     style="padding-bottom: 0;">
+                                    <h2 class="{{ row_title_size }}"
+                                        style="margin-bottom: 0;">{{ row_header[1] }}</h2>
+                                </div>
                                 {% if row_header[0] == 'PRODUCT' %}
                                     {% for product_input in row_parts offset: 1 %}
                                         {% assign product = all_products[product_input] %}
