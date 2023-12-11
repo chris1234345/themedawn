@@ -11,7 +11,13 @@
 
 <!-- Anonymous -->
 <section class="single-gate single-gate-login" hidden>
-  <h2>{{ 'single.login.title' | t }}</h2>
+  <h2>
+    {% if connect_wallet_title %}
+      {{ connect_wallet_title }}
+    {% else %}
+      {{ 'single.login.title' | t }}
+    {% endif %}
+  </h2>
   <p>{{ 'single.login.subTitle' | t }}</p>
   <button class="single-login-button btn button">{{ 'single.login.connect_wallet' | t }}</button>
 </section>
