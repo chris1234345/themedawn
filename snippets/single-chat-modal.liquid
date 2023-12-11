@@ -25,13 +25,13 @@
       showLoginForm();
     }
     const modal = document.getElementById('chat-login-modal');
-    modal.classList.remove('hidden');
+    modal.classList.remove('single-hidden');
     setupForms('{{ register_url }}', '{{ login_url }}');
   }
 
   function closeModal(id) {
     const modal = document.getElementById(id);
-    modal.classList.add('hidden');
+    modal.classList.add('single-hidden');
   }
 
   function handleIframeMessage(event) {
