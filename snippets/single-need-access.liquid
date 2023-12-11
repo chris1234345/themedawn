@@ -6,6 +6,9 @@
       {% else %}
         <h2 style="margin: 0;" class="title {{ title_size }}">{% section 'single-gated-need-access' %}</h2>
       {% endif %}
+      {% if section_description %}
+        <p style="margin-top: 1em; margin: 0;">{{ section_description }}</h2>
+      {% endif %}
     </div>
     {% for key_product in key_product_ids %}
       <div class="single-col col-1_{{ column_count }}">

@@ -20,15 +20,25 @@ SOFTWARE.
 {% endcomment %}
 
 {% if login_types.size > 0 %}
-<div class='single-login-container'>
-    {% for login_type in login_types %}
-        <div class='single-login-option'>
-            {% if login_type == 'CUSTOMER' %}
-                {% section 'single-default-login-button' %}
-            {% elsif login_type == 'WALLET' %}
-                {% section 'single-wallet-login-button' %}
-            {% endif %}
-        </div>
-    {% endfor %}
+<div class="{% if max_width == 'true' %}page-width{% endif %}">
+    <div class='single-login-container'>
+        {% if title or sub_title %}
+            <div class="single-col col-4_4 {{ title_size }}">
+                {{ title }}
+            </div>
+        {% endif %}
+        {% if sub_title %}
+            <p style="margin-top: 1em; margin: 0;">{{ sub_title }}</h2>
+        {% endif %}
+        {% for login_type in login_types %}
+            <div class='single-login-option'>
+                {% if login_type == 'CUSTOMER' %}
+                    {% section 'single-default-login-button' %}
+                {% elsif login_type == 'WALLET' %}
+                    {% section 'single-wallet-login-button' %}
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
 </div>
 {% endif %}
