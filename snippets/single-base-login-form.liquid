@@ -95,6 +95,11 @@
   .single-login .recover-links a:hover {
     text-decoration: underline;
   }
+
+  .single-errors {
+    color: white;
+    background-color: #dd2d2d;
+  }
 </style>
 
 <section class="single-login">
@@ -103,13 +108,15 @@
   {% endcomment %}
   <div id="form-login" class="single-form LOGIN_CLASSES">
     <h2 class="login-head">
-      {% if login_title %}
-        {{ login_title }}
-      {% else %}
-        {{ 'single.login.title' | t }}
-      {% endif %}
+      LOGIN_TITLE
     </h2>
     {% form 'customer_login', return_to: 'LOGIN_REDIRECT_URL' %}
+      <div class="single-errors">
+        {% if form.errors %}
+          {{ form_errors | default_errors }}
+        {% endif %}
+      </div>
+
       <div class="single-field email">
         <label for="email">{{ 'single.login.email' | t }}</label>
         <input type="email" name="customer[email]" placeholder="{{ 'single.login.email' | t }}">
@@ -147,6 +154,12 @@
     <h2 class="login-head">{{ 'single.recover_password.title' | t }}</h2>
     <p>{{ 'single.recover_password.subtext' | t }}</p>
     {% form 'recover_customer_password', return_to: 'LOGIN_REDIRECT_URL' %}
+      <div class="single-errors">
+        {% if form.errors %}
+          {{ form_errors | default_errors }}
+        {% endif %}
+      </div>
+
       <div class="single-field email">
         <label for="email">{{ 'single.login.email' | t }}</label>
         <input type="email" name="email" placeholder="Email">
@@ -174,6 +187,12 @@
     <div class="customer register">
       <h2 class="login-head">{{ 'single.register.title' | t }}</h2>
       {% form 'create_customer', return_to: 'SIGNUP_REDIRECT_URL' %}
+        <div class="single-errors">
+          {% if form.errors %}
+            {{ form_errors | default_errors }}
+          {% endif %}
+        </div>
+
         <div class="single-field">
           <label for="text">{{ 'single.register.first_name' | t }}</label>
           <input
@@ -337,7 +356,8 @@
               return;
             }
             const responseURL = new URL(request.responseURL);
-            if (window.location.hostname === responseURL.hostname && responseURL.pathname === '/') {
+            if (request.responseURL.includes('/account') ||
+                    (window.location.hostname === responseURL.hostname && responseURL.pathname === '/')) {
               document.location.href = returnUrl;
               return;
             }
@@ -361,7 +381,7 @@
                     })
                     .reduce((a, b) => a + '<div>' + b + '</div>', '');
           }
-          const errorsElement = document.querySelector(formId + ' .errors');
+          const errorsElement = document.querySelector(formId + ' .single-errors');
 
           //if there are errors show them in the html form
           if (!!formErrors && formErrors !== '' && formErrors !== 'undefined') {
