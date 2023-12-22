@@ -46,12 +46,20 @@
     </div>
   </div>
 
-  <div class="single-col col-3_4">
+  <div
+    class="single-col col-2_4"
+    id="progress"
+  >
     <div
       id="waveform"
       class="track-waveform"
     ></div>
+  </div>
 
+  <div
+    class="single-col col-1_4"
+    id="controls"
+  >
     <div class="track-details small">
       <div class="track-time">
         <span class="elapsed">00:00</span>
@@ -67,7 +75,6 @@
         <span class="track-bpm"></span>
       </div>
     </div>
-
     <div class="player-controls">
       <span class="prev material-icons"> skip_previous </span>
       <span
@@ -87,7 +94,7 @@
     {% unless shop.metafields.single_inc.whitelabel_enabled.value == true %}
       <div class="powered-by-logo">
         <a href="https://single.xyz" target="_blank" rel="noopener">
-          <img src="{{ 'single-logo-only.svg' | asset_url }}" loading="lazy" height="30" width="30" />
+          <img src="{{ 'single-logo-only.svg' | asset_url }}" loading="lazy" height="30" width="30">
         </a>
       </div>
     {% endunless %}
