@@ -41,21 +41,16 @@
         text-overflow: ellipsis;
         white-space: nowrap;
     }
-
-    .single-collection-all-wrapper {
-        padding-top: var(--topPadding);
-        padding-bottom: var(--bottomPadding);
-    }
 </style>
 
-<div class="single-grid single-collection-all-wrapper">
+<div class="single-grid single-collection-all-wrapper {% if max_width == 'true' %}page-width{% endif %}">
     <div class="single-grid-item">
         <div class="single-col col-4_4">
         {% if title %}
             <h2 class="title {{ title_size }}">{{ title }}</h2>
         {% endif %}
         {% if sub_title %}
-            <p style="margin-top: 1em; margin: 0;">{{ sub_title }}</h2>
+            <p class="description">{{ sub_title }}</p>
         {% endif %}
         </div>
     </div>
@@ -73,15 +68,31 @@
                 {% comment %}
                   <!-- Key Selector -->
                 {% endcomment %}
-                {% if viewable_content_key_names.size > 1 %}
-                    <div class="single-dropdown single-key-dropdown-wrap" tabindex="-1">
-                        <div class="single-key-dropdown single-dropdown-button">
-                            <div class="single-dropdown-selected">
+                {% if show_token_dropdown == 'true' %}
+                    {% if viewable_content_key_names.size > 1 %}
+                        <div class="single-dropdown single-key-dropdown-wrap" tabindex="-1">
+                            <div class="single-key-dropdown single-dropdown-button">
+                                <div class="single-dropdown-selected">
+                                    {% for viewable_content_key in viewable_content_key_names %}
+                                        {% assign viewable_content_key_parts = viewable_content_key | split: '|' %}
+                                        <div
+                                                id="single-dropdown-{{ viewable_content_key_parts[1] }}"
+                                                class="single-dropdown-selection{% unless forloop.first %} hidden{% endunless %}"
+                                        >
+                                            <div class="single-dropdown-img"><img src="{{ viewable_content_key_parts[2] }}">
+                                            </div>
+                                            <span>{{ viewable_content_key_parts[0] }}</span>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                {% render 'single-icon-caret' %}
+                            </div>
+                            <div class="single-dropdown-content">
                                 {% for viewable_content_key in viewable_content_key_names %}
                                     {% assign viewable_content_key_parts = viewable_content_key | split: '|' %}
                                     <div
-                                            id="single-dropdown-{{ viewable_content_key_parts[1] }}"
-                                            class="single-dropdown-selection{% unless forloop.first %} hidden{% endunless %}"
+                                            class="single-dropdown-content-row"
+                                            onclick="updateKeySelection('{{ viewable_content_key_parts[1] }}');"
                                     >
                                         <div class="single-dropdown-img"><img src="{{ viewable_content_key_parts[2] }}">
                                         </div>
@@ -89,29 +100,15 @@
                                     </div>
                                 {% endfor %}
                             </div>
-                            {% render 'single-icon-caret' %}
                         </div>
-                        <div class="single-dropdown-content">
-                            {% for viewable_content_key in viewable_content_key_names %}
-                                {% assign viewable_content_key_parts = viewable_content_key | split: '|' %}
-                                <div
-                                        class="single-dropdown-content-row"
-                                        onclick="updateKeySelection('{{ viewable_content_key_parts[1] }}');"
-                                >
-                                    <div class="single-dropdown-img"><img src="{{ viewable_content_key_parts[2] }}">
-                                    </div>
-                                    <span>{{ viewable_content_key_parts[0] }}</span>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                {% else %}
-                    {% assign viewable_content_key_parts = viewable_content_key_names[0] | split: '|' %}
-                    {% if viewable_content_key_parts[2] %}
-                        <div class="single-dropdown-selection solo-selection">
-                            <div class="single-dropdown-img"><img src="{{ viewable_content_key_parts[2] }}"></div>
-                            <span>{{ viewable_content_key_parts[0] }}</span>
-                        </div>
+                    {% else %}
+                        {% assign viewable_content_key_parts = viewable_content_key_names[0] | split: '|' %}
+                        {% if viewable_content_key_parts[2] %}
+                            <div class="single-dropdown-selection solo-selection">
+                                <div class="single-dropdown-img"><img src="{{ viewable_content_key_parts[2] }}"></div>
+                                <span>{{ viewable_content_key_parts[0] }}</span>
+                            </div>
+                        {% endif %}
                     {% endif %}
                 {% endif %}
                 {% comment %}
@@ -174,17 +171,20 @@
                                     {% for product_input in row_parts offset: 1 %}
                                         {% assign product = all_products[product_input] %}
                                         {% if product and product != blank %}
-                                            <div class="single-col col-2_4">
-                                                {% render 'single-product-card', product_input: product_input,
+                                            <div class="single-col col-1_{{ product_columns }}" style="padding-left: 0">
+                                                {% render 'single-product-card-vertical', 
+                                                        product_input: product_input,
                                                         show_title: product_show_title,
                                                         show_description: product_show_description,
-                                                        show_badge: product_show_badge %}
+                                                        show_badge: product_show_badge,
+                                                        show_quick_add: show_quick_add
+                                                %}
                                             </div>
                                         {% endif %}
                                     {% endfor %}
                                 {% elsif row_header[0] == 'VIDEO' %}
                                     {% for video_input in row_parts offset: 1 %}
-                                        <div class="single-col col-1_4">
+                                        <div class="single-col col-1_{{ video_columns }}">
                                             {% render 'single-video-card',
                                                     video_input: video_input,
                                                     show_title: video_show_title,
