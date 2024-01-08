@@ -316,11 +316,24 @@
     );
   }
 
+  function getRelativeUrl(url) {
+    try {
+      const parsedUrl = new URL(url);
+      const currentUrl = new URL(window.location.href);
+      if (parsedUrl.hostname === currentUrl.hostname) {
+        return parsedUrl.pathname + parsedUrl.search;
+      }
+      return url;
+    } catch (_) {
+      return url;
+    }
+  }
+
   function getUrlOrDefault(url) {
     if (!url || url === '') {
-      return window.location.href;
+      return getRelativeUrl(window.location.href);
     }
-    return url;
+    return getRelativeUrl(url);
   }
 
   function setupForm(formId, url) {
