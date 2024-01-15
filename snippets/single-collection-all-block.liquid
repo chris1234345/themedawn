@@ -46,12 +46,12 @@
 <div class="single-grid single-collection-all-wrapper {% if max_width == 'true' %}page-width{% endif %}">
     <div class="single-grid-item">
         <div class="single-col col-4_4">
-        {% if title %}
-            <h2 class="title {{ title_size }}">{{ title }}</h2>
-        {% endif %}
-        {% if sub_title %}
-            <div class="description">{{ sub_title }}</div>
-        {% endif %}
+            {% if title %}
+                <h2 class="title {{ title_size }}">{{ title }}</h2>
+            {% endif %}
+            {% if sub_title %}
+                <div class="description">{{ sub_title }}</div>
+            {% endif %}
         </div>
     </div>
     <div class="single-grid-item">
@@ -79,7 +79,8 @@
                                                 id="single-dropdown-{{ viewable_content_key_parts[1] }}"
                                                 class="single-dropdown-selection{% unless forloop.first %} hidden{% endunless %}"
                                         >
-                                            <div class="single-dropdown-img"><img src="{{ viewable_content_key_parts[2] }}">
+                                            <div class="single-dropdown-img"><img
+                                                        src="{{ viewable_content_key_parts[2] }}">
                                             </div>
                                             <span>{{ viewable_content_key_parts[0] }}</span>
                                         </div>
@@ -136,6 +137,17 @@
 
     <div class="single-hidden-while-loading">
         {% comment %}
+          <!-- START - Custodial NFTs -->
+        {% endcomment %}
+        <single-collectibles show-collectible-title='true' show-login='false' collectible-title-size='h2'
+                             collectible-title-alignment='left' text-color='#000000' button-background-color='#000000'
+                             button-text-color='#FFFFFF' button-border-color='#000000'
+                             hover-background-color='rgba(0, 0, 0, 0.7)' image-border-color='#000000' max-width='true'
+                             columns='4' image-border-radius='5px' button-border-radius='5px' image-border-width='1px'
+                             button-border-width='1px' horizontal-padding='0px' vertical-padding='20px'>
+        </single-collectibles>
+
+        {% comment %}
           <!-- START - Video Collection Grid -->
         {% endcomment %}
         {% if viewable_content_key_names.size > 0 %}
@@ -172,7 +184,7 @@
                                         {% assign product = all_products[product_input] %}
                                         {% if product and product != blank %}
                                             <div class="single-col col-1_{{ product_columns }}" style="padding-left: 0">
-                                                {% render 'single-product-card-vertical', 
+                                                {% render 'single-product-card-vertical',
                                                         product_input: product_input,
                                                         show_title: product_show_title,
                                                         show_description: product_show_description,
