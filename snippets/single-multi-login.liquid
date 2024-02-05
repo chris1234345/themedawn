@@ -101,6 +101,15 @@
   }
 </style>
 
+{% if background_image | blank != true %}
+  {% assign login_title = 'Log in to watch' %}
+  {% assign show_header_icon = 'true' %}
+  <div
+    class="video-overlay"
+    style="background-image: url('{{ background_image }}')"
+  >
+{% endif %}
+
 <div class="single-grid-item login-container">
   {% if title or sub_title %}
     <div class="single-col col-4_4 text-center">
@@ -139,9 +148,19 @@
             {% assign single-customer-login = single-customer-login | replace: 'SIGNUP_LINK_CLASSES', 'single-hidden' %}
           {% endif %}
           {% if show_cancel_signup_link == 'false' %}
-            {% assign single-customer-login = single-customer-login | replace: 'CANCEL_SIGNUP_LINK_CLASSES', 'single-hidden' %}
+            {% assign single-customer-login = single-customer-login
+              | replace: 'CANCEL_SIGNUP_LINK_CLASSES', 'single-hidden'
+            %}
           {% endif %}
-          {{ single-customer-login | replace: 'LOGIN_TITLE', login_title | replace: 'LOGIN_REDIRECT_URL', login_redirect_url | replace: 'SIGNUP_REDIRECT_URL', signup_redirect_url }}
+          {% if show_header_icon == 'true' %}
+            {% assign single-customer-login = single-customer-login | replace: 'SHOW_HEADER_ICON', 'single-display' %}
+          {% endif %}
+          {{
+            single-customer-login
+            | replace: 'LOGIN_TITLE', login_title
+            | replace: 'LOGIN_REDIRECT_URL', login_redirect_url
+            | replace: 'SIGNUP_REDIRECT_URL', signup_redirect_url
+          }}
         {% endif %}
       {% elsif login_detail_parts[0] == 'WALLET' %}
         {% if login_detail_parts.size > 1 and login_detail_parts[1] == 'true' %}
@@ -152,9 +171,15 @@
           </section>
         {% else %}
           {% capture single-connect-wallet %}{% section 'single-wallet-login' %}{% endcapture %}
-          {{ single-connect-wallet | replace: 'CONNECT_WALLET_TITLE', connect_wallet_title  }}
+          {{ single-connect-wallet | replace: 'CONNECT_WALLET_TITLE', connect_wallet_title }}
         {% endif %}
       {% endif %}
     </div>
   {% endfor %}
 </div>
+{% comment %}
+  <!-- Closing </div> if video overlay is shown -->
+{% endcomment %}
+{% if background_image | blank != true %}
+  </div>
+{% endif %}
