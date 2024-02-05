@@ -100,6 +100,10 @@
     color: white;
     background-color: #dd2d2d;
   }
+
+  .single-display {
+    display: block !important;
+  }
 </style>
 
 <section class="single-login">
@@ -107,6 +111,9 @@
     <!-- START #form-login -->
   {% endcomment %}
   <div id="form-login" class="single-form LOGIN_CLASSES">
+    <div class="single-hidden SHOW_HEADER_ICON">
+      {% render 'single-icon-lock-square' %}
+    </div>
     <h2 class="login-head">
       LOGIN_TITLE
     </h2>
