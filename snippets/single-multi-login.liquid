@@ -104,10 +104,11 @@
 {% if background_image | blank != true %}
   {% assign login_title = 'Log in to watch' %}
   {% assign show_header_icon = 'true' %}
-  <div
-    class="video-overlay"
-    style="background-image: url('{{ background_image }}')"
-  >
+  <div class="video-overlay-wrapper page-width">
+    <div
+      class="video-overlay"
+      style="background-image: url('{{ background_image }}')"
+    >
 {% endif %}
 
 <div class="single-grid-item login-container">
@@ -181,5 +182,6 @@
   <!-- Closing </div> if video overlay is shown -->
 {% endcomment %}
 {% if background_image | blank != true %}
+  </div>
   </div>
 {% endif %}
